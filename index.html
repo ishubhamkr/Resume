@@ -4,13 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Shubham Kumar - Resume</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <style>
+        /* Global Styles */
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             line-height: 1.6;
             margin: 0;
             padding: 0;
-            background-color: #f2f2f2;
+            background-color: #f3f4f6;
             color: #333;
         }
         .container {
@@ -19,10 +21,12 @@
             background-color: #fff;
             padding: 20px;
             border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            line-height: 1.8;
         }
         h1, h2, h3 {
             color: #333;
+            font-weight: bold;
         }
         h1 {
             font-size: 36px;
@@ -40,41 +44,113 @@
             margin: 10px 0;
         }
         .section {
-            margin-bottom: 20px;
+            margin-bottom: 30px;
         }
         .contact-info {
-            margin-bottom: 20px;
+            margin-bottom: 30px;
         }
-        .skills {
-            margin-bottom: 20px;
+        .skills, .experience, .education, .achievements, .publications, .certifications {
+            margin-bottom: 30px;
         }
-        .experience {
-            margin-bottom: 20px;
+
+        /* Header Section */
+        header {
+            text-align: center;
+            margin-bottom: 30px;
         }
-        .education {
-            margin-bottom: 20px;
+        header p {
+            font-size: 18px;
+            margin-top: 5px;
         }
-        .achievements {
-            margin-bottom: 20px;
+        .fa {
+            margin-right: 10px;
+            font-size: 20px;
         }
-        .publications {
-            margin-bottom: 20px;
+        .fa.linkedin {
+            color: #0077B5; /* LinkedIn color */
         }
-        .certifications {
+        .fa.github {
+            color: #333; /* GitHub color */
+        }
+        .fa-envelope {
+            color: #EA4335; /* Gmail color */
+        }
+        .fa-phone {
+            color: #00796B; /* Phone color */
+        }
+
+        /* Work Experience & Education */
+        .article {
             margin-bottom: 20px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #ddd;
+        }
+        .article:last-child {
+            border-bottom: none;
+        }
+        .article h3 {
+            font-size: 24px;
+            margin-bottom: 5px;
+            color: #333;
+        }
+        .article p {
+            margin-bottom: 10px;
+        }
+        .article ul {
+            margin-bottom: 10px;
+            padding-left: 20px;
+        }
+
+        /* Skills */
+        .skills ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        .skills ul li {
+            margin-bottom: 10px;
+        }
+        .skills ul li strong {
+            display: inline-block;
+            width: 150px;
+        }
+
+        /* Achievements, Certifications, Publications */
+        .achievements ul, .publications ul, .certifications ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        .achievements ul li, .publications ul li, .certifications ul li {
+            margin-bottom: 10px;
+        }
+
+        /* Media Queries */
+        @media (max-width: 768px) {
+            .container {
+                padding: 10px;
+            }
+            h1 {
+                font-size: 30px;
+            }
+            h2 {
+                font-size: 24px;
+            }
+            h3 {
+                font-size: 20px;
+            }
         }
     </style>
 </head>
 <body>
     <div class="container">
+        <!-- Header Section -->
         <header>
             <h1>Shubham Kumar</h1>
-            <p><strong>Software Engineer at Optum Global Solutions (UHG)</strong></p>
-            <p>
-                <span class="fa fa-phone"></span> +91-8002887706 &nbsp;
-                <span class="fa fa-envelope-o"></span> <a href="mailto:mshubham0309@gmail.com">mshubham0309@gmail.com</a> &nbsp;
-                <span class="fa fa-linkedin"></span> <a href="https://www.linkedin.com/in/imshubhamkumar/">imshubhamkumar</a> &nbsp;
-                <span class="fa fa-github"></span> <a href="https://github.com/ishubhamkr">ishubhamkr</a> &nbsp;
+            <p>Software Engineer at Optum Global Solutions (UHG)</p>
+            <p class="contact-info">
+                <a href="tel:+918002887706" class="fa fa-phone"></a> +91-8002887706 &nbsp;
+                <a href="mailto:mshubham0309@gmail.com" class="fa fa-envelope"></a> <a href="mailto:mshubham0309@gmail.com">mshubham0309@gmail.com</a> &nbsp;
+                <a href="https://www.linkedin.com/in/imshubhamkumar/" class="fa fa-linkedin linkedin"></a> <a href="https://www.linkedin.com/in/imshubhamkumar/">imshubhamkumar</a> &nbsp;
+                <a href="https://github.com/ishubhamkr" class="fa fa-github github"></a> <a href="https://github.com/ishubhamkr">ishubhamkr</a> &nbsp;
                 <span class="fa fa-map-marker"></span> Noida, UP, India
             </p>
         </header>
@@ -90,8 +166,9 @@
         <!-- Work Experience -->
         <section class="section experience">
             <h2>Work Experience</h2>
-            <article>
-                <h3>Software Engineer at Optum Global Solutions (UHG)</h3>
+            <article class="article">
+                <h3>Software Engineer</h3>
+				<h4>Optum Global Solutions (UHG)</h4>
                 <p><strong>July 2022 - Present</strong></p>
                 <ul>
                     <li>Boosted API performance through advanced optimizations in access and user-management processes.</li>
@@ -103,9 +180,9 @@
                 </ul>
                 <p><strong>Tools & Technology:</strong> Java, Spring Boot, ReactJS, Abyss, Splunk, Kibana, ServiceNow, MongoDB, Kubernetes, Azure, Git, HELM, Terraform, Jenkins (Deployment)</p>
             </article>
-
-            <article>
+            <article class="article">
                 <h3>Teaching Assistant</h3>
+				<h4>Indian Institute of Information Technology, Gwalior, Madhya Pradesh, India</h4>
                 <p><strong>Jan 2022 - May 2022</strong></p>
                 <ul>
                     <li>Assisted in C Programming Lab for 1st-year B.Tech students and AI Lab for 2nd-year B.Tech students, helping with C Programming and AI-related coding questions.</li>
@@ -118,19 +195,19 @@
         <!-- Education -->
         <section class="section education">
             <h2>Education</h2>
-            <article>
+            <article class="article">
                 <h3>M.Tech - Information Security</h3>
                 <p><strong>2020 - 2022</strong></p>
                 <p>Indian Institute of Information Technology, Gwalior, Madhya Pradesh, India</p>
             </article>
-            <article>
+            <article class="article">
                 <h3>B.Tech - Computer Science & Engineering</h3>
                 <p><strong>2015 - 2019</strong></p>
                 <p>Maulana Abul Kalam Azad University of Technology, Kolkata, West Bengal, India</p>
             </article>
         </section>
 
-        <!-- Skills -->
+                <!-- Skills -->
         <section class="section skills">
             <h2>Skills</h2>
             <ul>
@@ -138,7 +215,7 @@
                 <li><strong>Front End:</strong> HTML, ReactJS, CSS</li>
                 <li><strong>Middle End:</strong> Spring Boot, Microservices</li>
                 <li><strong>Back End:</strong> MySQL, MongoDB</li>
-                <li><strong>Tools & Frameworks:</strong> JUnit, RestAPI, Kubernetes, Helm, Terraform</li>
+                <li><strong>Tools & Technologies:</strong> JUnit, RestAPI, Kubernetes, Helm, Terraform</li>
                 <li><strong>IDEs:</strong> Atom, Visual Studio, IntelliJ IDEA, Eclipse</li>
                 <li><strong>Other Tools and Software:</strong> Splunk, Kibana, Git, Jenkins, Postman, New Relic, ZenMap, Azure, Kubebuilder</li>
             </ul>
@@ -147,8 +224,10 @@
         <!-- Publications -->
         <section class="section publications">
             <h2>Publications</h2>
-            <p><a href="https://ieeexplore.ieee.org/document/10262746" target="_blank"><strong>Securing IoT with Blockchain: Detecting Malicious Nodes with TLS Certificates</strong></a><br>
-            2023 International Conference on Computer, Electronics & Electrical Engineering & their Applications (IC2E3) • Jun 8, 2023</p>
+            <ul>
+                <li><a href="https://ieeexplore.ieee.org/document/10262746" target="_blank"><strong>Securing IoT with Blockchain: Detecting Malicious Nodes with TLS Certificates</strong></a><br>
+                2023 International Conference on Computer, Electronics & Electrical Engineering & their Applications (IC2E3) • Jun 8, 2023</li>
+            </ul>
         </section>
 
         <!-- Certifications -->
