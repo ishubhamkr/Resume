@@ -412,6 +412,14 @@
             font-weight: bold;
         }
 
+        /* Skill Icons */
+        .skill-icon {
+            width: 20px; /* Adjust the size as needed */
+            height: 20px; /* Adjust the size as needed */
+            margin-right: 8px; /* Add some spacing between the icon and text */
+            vertical-align: middle; /* Align the icon with the text */
+        }
+
         /* Projects */
         .projects .projects-grid {
             display: grid;
@@ -554,31 +562,44 @@
 
         /* LinkedIn Posts Section */
         .linkedin-posts {
-            background-color: #f7f7f7;
             padding: var(--section-spacing) 0;
+            background-color: #f7f7f7;
         }
 
-        .skill-icon {
-            width: 20px;
-            height: 20px;
-            vertical-align: middle;
-            margin-right: 8px;
-        }
-
-        .linkedin-posts .container {
+        .linkedin-embed-container {
             display: flex;
-            flex-direction: column;
-            align-items: center;
+            flex-wrap: wrap; /* Allow wrapping on smaller screens */
+            gap: 20px; /* Space between posts */
+            justify-content: center; /* Center posts horizontally */
         }
 
-        .linkedin-posts iframe {
-            width: 100%;
-            max-width: 800px;
-            height: 500px;
-            border: none;
-            margin: 20px 0;
-            box-shadow: 0 4px 10px var(--card-shadow);
+        .linkedin-embed {
+            background-color: #fff;
             border-radius: 8px;
+            box-shadow: 0 4px 10px var(--card-shadow);
+            overflow: hidden;
+            transition: transform var(--transition-speed), box-shadow var(--transition-speed);
+            width: calc(50% - 10px); /* Two posts side by side with gap */
+            max-width: 504px; /* Match LinkedIn's embedded post width */
+        }
+
+        .linkedin-embed:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+        }
+
+        .linkedin-embed iframe {
+            width: 100%;
+            height: 399px; /* Match LinkedIn's embedded post height */
+            border: none;
+        }
+
+        /* Responsive Design for Smaller Screens */
+        @media (max-width: 1024px) {
+            .linkedin-embed {
+                width: 100%; /* Stack posts vertically on smaller screens */
+                max-width: 100%;
+            }
         }
 
         /* Footer */
@@ -848,6 +869,8 @@
     <nav>
         <ul>
             <li><a href="#profile">Profile</a></li>
+            <li><a href="#instagram">Instagram</a></li>
+            <li><a href="#linkedin-posts">LinkedIn Posts</a></li>
             <li><a href="#work-experience">Experience</a></li>
             <li><a href="#projects">Projects</a></li>
             <li><a href="#education">Education</a></li>
@@ -855,8 +878,6 @@
             <li><a href="#publications">Publications</a></li>
             <li><a href="#achievements">Achievements</a></li>
             <li><a href="#certifications">Certifications</a></li>
-            <li><a href="#linkedin-posts">LinkedIn Posts</a></li>
-            <li><a href="#instagram">Instagram</a></li>
         </ul>
     </nav>
 
@@ -867,7 +888,7 @@
                 <!-- Text Content -->
                 <div class="header-text">
                     <h1>Shubham Kumar</h1>
-                    <h2>Software Engineer at Optum Global Solutions (UHG)</h2>
+                    <h2>Senior Software Engineer at Optum Global Solutions (UHG)</h2>
                     <!-- Enhanced Contact Information -->
                     <div class="header-icons">
                         <!-- Call Icon -->
@@ -920,7 +941,7 @@
         <div class="container">
             <h2 class="section-title"><i class="fas fa-user"></i> Professional Summary</h2>
             <p>
-                Highly motivated Software Engineer at Optum Global Solutions (UHG), specializing in API optimization,
+                Highly motivated Senior Software Engineer at Optum Global Solutions (UHG), specializing in API optimization,
                 security enhancements, and scalable backend development. Proficient in Java, Spring Boot, ReactJS, Kafka,
                 and Kubernetes, with a strong foundation in information security backed by a Master of Technology in
                 Information Security. Demonstrated expertise in resolving critical incidents, implementing
@@ -928,6 +949,64 @@
                 architecture and modern tools to deliver efficient, secure, and high-quality software solutions and
                 committed to continuous learning and excellence in software development.
             </p>
+        </div>
+    </section>
+
+    <!-- Instagram Section -->
+    <section id="instagram" class="instagram">
+        <div class="container">
+            <h2 class="section-title"><i class="fab fa-instagram"></i> Instagram</h2>
+            <div class="instagram-profile">
+                <!-- Profile Info -->
+                <div class="profile-info">
+                    <img src="https://github.com/ishubhamkr/Resume/blob/main/images/ProfilePicture.jpg?raw=true" alt="Profile Picture" class="profile-pic">
+                    <div class="profile-details">
+                        <h3>Shubham Kumar</h3>
+                        <p>Indian | Pisces | IIITian </p>
+                        <p>Anime Lover | 9th March</p>
+                        <div class="stats">
+                            <span><strong>43</strong> posts</span>
+                            <span><strong>849</strong> followers</span>
+                            <span><strong>284</strong> following</span>
+                        </div>
+                        <a href="https://www.instagram.com/shubhamkumar___/" target="_blank" class="follow-button">Follow</a>
+                    </div>
+                </div>
+                <!-- Instagram Grid -->
+                <div class="instagram-grid">
+                    <a href="https://www.instagram.com/shubhamkumar___/" target="_blank" class="instagram-item">
+                        <img src="https://github.com/ishubhamkr/Resume/blob/main/images/image1.png?raw=true" alt="Instagram Image 1">
+                    </a>
+                    <a href="https://www.instagram.com/shubhamkumar___/" target="_blank" class="instagram-item">
+                        <img src="https://github.com/ishubhamkr/Resume/blob/main/images/image2.png?raw=true" alt="Instagram Image 2">
+                    </a>
+                    <a href="https://www.instagram.com/shubhamkumar___/" target="_blank" class="instagram-item">
+                        <img src="https://github.com/ishubhamkr/Resume/blob/main/images/image3.png?raw=true" alt="Instagram Image 3">
+                    </a>
+                    <a href="https://www.instagram.com/shubhamkumar___/" target="_blank" class="instagram-item">
+                        <img src="https://github.com/ishubhamkr/Resume/blob/main/images/image4.png?raw=true" alt="Instagram Image 4">
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+   <!-- LinkedIn Posts Section -->
+    <section id="linkedin-posts" class="linkedin-posts">
+        <div class="container">
+            <h2 class="section-title"><i class="fab fa-linkedin"></i> LinkedIn Posts</h2>
+            <div class="linkedin-embed-container">
+                <!-- Embedded LinkedIn Post 1 -->
+                <div class="linkedin-embed">
+                    <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:share:7289242306015064064" height="399" width="504" frameborder="0" allowfullscreen="" title="Embedded post"></iframe>
+                </div>
+
+                <!-- Embedded LinkedIn Post 2 -->
+                <div class="linkedin-embed">
+                    <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:share:7203817732360880129" height="399" width="504" frameborder="0" allowfullscreen="" title="Embedded post"></iframe>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -1160,70 +1239,21 @@
         </div>
     </section>
 
-    <!-- LinkedIn Posts Section -->
-    <section id="linkedin-posts" class="linkedin-posts">
-        <div class="container">
-            <h2 class="section-title"><i class="fab fa-linkedin"></i> LinkedIn Posts</h2>
-            <!-- Embed LinkedIn Posts -->
-            <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:share:7289242306015064064" height="399" width="504" frameborder="0" allowfullscreen="" title="Embedded post"></iframe>
-            <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:share:7203817732360880129" height="399" width="504" frameborder="0" allowfullscreen="" title="Embedded post"></iframe>
-        </div>
-    </section>
-
-    <!-- Instagram Section -->
-    <section id="instagram" class="instagram">
-        <div class="container">
-            <h2 class="section-title"><i class="fab fa-instagram"></i> Instagram</h2>
-            <div class="instagram-profile">
-                <!-- Profile Info -->
-                <div class="profile-info">
-                    <img src="https://github.com/ishubhamkr/Resume/blob/main/images/ProfilePicture.jpg?raw=true" alt="Profile Picture" class="profile-pic">
-                    <div class="profile-details">
-                        <h3>Shubham Kumar</h3>
-                        <p>Indian 🟡 | 🟡 Pisces 🟡 | !!!!Tian 🟡</p>
-                        <p>Anime Lover 🟡 | 9th March</p>
-                        <div class="stats">
-                            <span><strong>43</strong> posts</span>
-                            <span><strong>849</strong> followers</span>
-                            <span><strong>284</strong> following</span>
-                        </div>
-                        <a href="https://www.instagram.com/shubhamkumar___/" target="_blank" class="follow-button">Follow</a>
-                    </div>
-                </div>
-                <!-- Instagram Grid -->
-                <div class="instagram-grid">
-                    <a href="https://www.instagram.com/shubhamkumar___/" target="_blank" class="instagram-item">
-                        <img src="https://github.com/ishubhamkr/Resume/blob/main/images/image1.png?raw=true" alt="Instagram Image 1">
-                    </a>
-                    <a href="https://www.instagram.com/shubhamkumar___/" target="_blank" class="instagram-item">
-                        <img src="https://github.com/ishubhamkr/Resume/blob/main/images/image2.png?raw=true" alt="Instagram Image 2">
-                    </a>
-                    <a href="https://www.instagram.com/shubhamkumar___/" target="_blank" class="instagram-item">
-                        <img src="https://github.com/ishubhamkr/Resume/blob/main/images/image3.png?raw=true" alt="Instagram Image 3">
-                    </a>
-                    <a href="https://www.instagram.com/shubhamkumar___/" target="_blank" class="instagram-item">
-                        <img src="https://github.com/ishubhamkr/Resume/blob/main/images/image4.png?raw=true" alt="Instagram Image 4">
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <!-- Footer -->
     <footer>
         <div class="container">
             &copy; 2024 Shubham Kumar. All rights reserved.
             <div class="footer-links">
                 <a href="#profile">Profile</a> |
+                <a href="#instagram">Instagram</a> |
+                <a href="#linkedin-posts">LinkedIn Posts</a> |
                 <a href="#work-experience">Experience</a> |
                 <a href="#projects">Projects</a> |
                 <a href="#education">Education</a> |
                 <a href="#skills">Skills</a> |
                 <a href="#publications">Publications</a> |
                 <a href="#achievements">Achievements</a> |
-                <a href="#certifications">Certifications</a> |
-                <a href="#linkedin-posts">LinkedIn Posts</a> |
-                <a href="#instagram">Instagram</a>
+                <a href="#certifications">Certifications</a>
             </div>
         </div>
     </footer>
