@@ -748,94 +748,98 @@
             }
         }
 
-            .instagram {
+        .instagram {
             padding: var(--section-spacing) 0;
             background-color: #fff;
-            }
+        }
 
-            .instagram-profile {
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-                text-align: center;
-            }
+        .instagram-profile {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
 
-            .profile-info {
-                display: flex;
-                align-items: center;
-                margin-bottom: 20px;
-            }
+        .profile-info {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
 
-            .profile-pic {
-                width: 150px;
-                height: 150px;
-                border-radius: 50%;
-                margin-right: 20px;
-            }
+        .profile-pic {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            margin-right: 20px;
+            object-fit: cover;
+            border: 3px solid var(--accent-color);
+        }
 
-            .profile-details h3 {
-                font-size: 1.5em;
-                margin-bottom: 10px;
-            }
+        .profile-details h3 {
+            font-size: 1.5em;
+            margin-bottom: 10px;
+            color: var(--secondary-color);
+        }
 
-            .profile-details p {
-                color: #7f8c8d;
-                margin-bottom: 10px;
-            }
+        .profile-details p {
+            color: #7f8c8d;
+            margin-bottom: 10px;
+        }
 
-            .stats {
-                display: flex;
-                justify-content: space-around;
-                margin-bottom: 20px;
-            }
+        .stats {
+            display: flex;
+            justify-content: space-around;
+            margin-bottom: 20px;
+        }
 
-            .stats span {
-                font-size: 1.1em;
-            }
+        .stats span {
+            font-size: 1.1em;
+            color: var(--secondary-color);
+        }
 
-            .follow-button {
-                background-color: var(--accent-color);
-                color: #fff;
-                padding: 10px 20px;
-                border-radius: 5px;
-                text-decoration: none;
-                font-weight: 600;
-                transition: background-color var(--transition-speed);
-            }
+        .follow-button {
+            background-color: var(--accent-color);
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background-color var(--transition-speed);
+        }
 
-            .follow-button:hover {
-                background-color: var(--secondary-color);
-            }
+        .follow-button:hover {
+            background-color: var(--secondary-color);
+        }
 
-            .instagram-grid {
-                display: grid;
-                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-                gap: 20px;
-                width: 100%;
-            }
+        .instagram-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            width: 100%;
+        }
 
-            .instagram-item {
-                overflow: hidden;
-                border-radius: 8px;
-                box-shadow: 0 4px 10px var(--card-shadow);
-                transition: transform var(--transition-speed), box-shadow var(--transition-speed);
-            }
+        .instagram-item {
+            overflow: hidden;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px var(--card-shadow);
+            transition: transform var(--transition-speed), box-shadow var(--transition-speed);
+        }
 
-            .instagram-item img {
-                width: 100%;
-                height: 100%;
-                object-fit: cover;
-                transition: transform var(--transition-speed);
-            }
+        .instagram-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform var(--transition-speed);
+        }
 
-            .instagram-item:hover {
-                transform: translateY(-5px);
-                box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
-            }
+        .instagram-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+        }
 
-            .instagram-item:hover img {
-                transform: scale(1.1);
-            }
+        .instagram-item:hover img {
+            transform: scale(1.1);
+        }
     </style>
 </head>
 
@@ -1171,8 +1175,9 @@
         <div class="container">
             <h2 class="section-title"><i class="fab fa-instagram"></i> Instagram</h2>
             <div class="instagram-profile">
+                <!-- Profile Info -->
                 <div class="profile-info">
-                    <img src="https://instagram.fixr3-2.fna.fbcdn.net/v/t51.2885-19/475040927_1330121768025622_2072490591380286040_n.jpg?stp=dst-jpg_s320x320_tt6&_nc_ht=instagram.fixr3-2.fna.fbcdn.net&_nc_cat=110&_nc_oc=Q6cZ2AEjmnYThmMr2i_Cw7s49uxMCPdTMygBA79IuSESUPQbabklKSg8N_3w6dOMKOGXlY3BZ1LrE14Oe8thyLzJlGfQ&_nc_ohc=K_Ow3LC1qI4Q7kNvgEWM0yO&_nc_gid=_0Qdd7_FEEMDQtI3FJBNBQ&edm=AOQ1c0wBAAAA&ccb=7-5&oh=00_AYEw8KGK2TsCPqLmigwQ_x65ynskzmZkUijJK2e0qVmAyA&oe=67DC56AF&_nc_sid=8b3546" alt="Profile Picture" class="profile-pic">
+                    <img src="https://github.com/ishubhamkr/Resume/blob/main/images/ProfilePicture.jpg?raw=true" alt="Profile Picture" class="profile-pic">
                     <div class="profile-details">
                         <h3>Shubham Kumar</h3>
                         <p>Indian 🟡 | 🟡 Pisces 🟡 | !!!!Tian 🟡</p>
@@ -1185,18 +1190,19 @@
                         <a href="https://www.instagram.com/shubhamkumar___/" target="_blank" class="follow-button">Follow</a>
                     </div>
                 </div>
+                <!-- Instagram Grid -->
                 <div class="instagram-grid">
                     <a href="https://www.instagram.com/shubhamkumar___/" target="_blank" class="instagram-item">
-                        <img src="https://via.placeholder.com/300" alt="Instagram Image 1">
+                        <img src="https://github.com/ishubhamkr/Resume/blob/main/images/image1.png?raw=true" alt="Instagram Image 1">
                     </a>
                     <a href="https://www.instagram.com/shubhamkumar___/" target="_blank" class="instagram-item">
-                        <img src="https://via.placeholder.com/300" alt="Instagram Image 2">
+                        <img src="https://github.com/ishubhamkr/Resume/blob/main/images/image2.png?raw=true" alt="Instagram Image 2">
                     </a>
                     <a href="https://www.instagram.com/shubhamkumar___/" target="_blank" class="instagram-item">
-                        <img src="https://via.placeholder.com/300" alt="Instagram Image 3">
+                        <img src="https://github.com/ishubhamkr/Resume/blob/main/images/image3.png?raw=true" alt="Instagram Image 3">
                     </a>
                     <a href="https://www.instagram.com/shubhamkumar___/" target="_blank" class="instagram-item">
-                        <img src="https://via.placeholder.com/300" alt="Instagram Image 4">
+                        <img src="https://github.com/ishubhamkr/Resume/blob/main/images/image4.png?raw=true" alt="Instagram Image 4">
                     </a>
                 </div>
             </div>
