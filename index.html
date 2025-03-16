@@ -1,1080 +1,1253 @@
-<!DOCTYPE html>    
-<html lang="en">    
-    
-<head>    
-    <meta charset="UTF-8">    
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">    
-    <title>Shubham Kumar | Software Engineer</title>    
-    <!-- Google Fonts -->    
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">    
-    <!-- Font Awesome for Section Icons -->    
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"    
-        integrity="sha512-pD6XyAohyfjrx9PQsXx1WoN9YbXnVJ/d1SAdckQ4j6a+Qe/rhC4xNsq2p0pJvTok47LX6gNrrB2ElxcSYCb2DQ=="    
-        crossorigin="anonymous" referrerpolicy="no-referrer" />    
-    <!-- CSS Styles -->    
-    <style>    
-        :root {    
-            --primary-color: #253d55;   
-            --secondary-color: #062b45;     
-            --accent-color: #0fd78b;     
-            --background-color: #ecf0f1;    
-            --text-color: #000000;    
-            --font-family: 'Roboto', sans-serif;    
-            --heading-font: 'Poppins', sans-serif;    
-            --transition-speed: 0.3s;    
-            --section-spacing: 60px;    
-            --nav-height: 60px;    
-            --card-bg: #ffffff;    
-            --card-shadow: rgba(0, 0, 0, 0.1);    
-        }    
-    
-        *, *::before, *::after {    
-            box-sizing: border-box;    
-            margin: 0;    
-            padding: 0;    
-        }    
-    
-        body {    
-            font-family: var(--font-family);    
-            color: var(--text-color);    
-            background-color: var(--background-color);    
-            line-height: 1.6;    
-            scroll-behavior: smooth;    
-            overflow-x: hidden;    
-        }    
-    
-        .container {    
-            width: 90%;    
-            max-width: 1200px;    
-            margin: 0 auto;    
-            padding: 20px 0;    
-        }    
-    
-        /* Navigation Bar */    
-        nav {    
-            position: fixed;    
-            top: 0;    
-            left: 0;    
-            width: 100%;    
-            background: rgba(44, 62, 80, 0.95);    
-            z-index: 100;    
-            height: var(--nav-height);    
-            display: flex;    
-            align-items: center;    
-            justify-content: center;    
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);    
-        }    
-    
-        nav ul {    
-            list-style: none;    
-            display: flex;    
-            gap: 20px;    
-        }    
-    
-        nav ul li a {    
-            color: #ecf0f1;    
-            text-decoration: none;    
-            font-weight: 600;    
-            transition: color var(--transition-speed), border-bottom var(--transition-speed);    
-            padding-bottom: 5px;    
-            position: relative;    
-        }    
-    
-        nav ul li a::after {    
-            content: '';    
-            position: absolute;    
-            width: 0;    
-            height: 2px;    
-            background: var(--accent-color);    
-            left: 0;    
-            bottom: -2px;    
-            transition: width var(--transition-speed);    
-        }    
-    
-        nav ul li a:hover,    
-        nav ul li a.active {    
-            color: var(--accent-color);    
-        }    
-    
-        nav ul li a:hover::after,    
-        nav ul li a.active::after {    
-            width: 100%;    
-        }    
-    
-        /* Header */    
-        header {    
-            background-image: url('https://raw.githubusercontent.com/ishubhamkr/Resume/main/sl_031420_28950_10.jpg'); /* Ensure this URL is correct */    
-            background-size: cover;    
-            background-position: center;    
-            background-repeat: no-repeat;    
-            color: #fff;    
-            min-height: 100vh;    
-            display: flex;    
-            align-items: center;    
-            position: relative;    
-            padding: 0 20px;    
-        }    
-    
-        /* Overlay for better text visibility */    
-        header::before {    
-            content: '';    
-            position: absolute;    
-            top: 0;    
-            left: 0;    
-            width: 100%;    
-            height: 100%;    
-            /* Reduced opacity for a more vibrant background image */    
-            background: rgba(44, 62, 80, 0.4);    
-            z-index: 0;    
-        }    
-    
-        .header-content {    
-            display: grid;    
-            grid-template-columns: 1fr 250px;    
-            align-items: center;    
-            gap: 40px;    
-            position: relative;    
-            z-index: 1;    
-            width: 100%;    
-        }    
-    
-        /* Text Content */    
-        .header-text {    
-            max-width: 600px;    
-        }    
-    
-        .header-text h1 {    
-            font-family: var(--heading-font);    
-            font-size: 3em;    
-            margin-bottom: 10px;    
-            letter-spacing: 2px;    
-            animation: fadeInDown 1s ease-out;    
-        }    
-    
-        .header-text h2 {    
-            font-weight: 400;    
-            margin-bottom: 30px;    
-            font-size: 1.5em;    
-            letter-spacing: 1px;    
-            animation: fadeInUp 1s ease-out;    
-        }    
-    
-        /* Enhanced Contact Information */    
-        .header-icons {    
-            display: flex;    
-            flex-wrap: wrap;    
-            gap: 15px;    
-            animation: fadeIn 1.5s ease-out;    
-        }    
-    
-        .header-icons a {    
-            background-color: var(--secondary-color);    
-            color: #fff;    
-            padding: 15px;    
-            border-radius: 50%;    
-            width: 50px;    
-            height: 50px;    
-            display: flex;    
-            align-items: center;    
-            justify-content: center;    
-            text-decoration: none;    
-            position: relative;    
-            transition: background-color var(--transition-speed), transform var(--transition-speed),    
-                box-shadow var(--transition-speed);    
-            box-shadow: 0 4px 10px var(--card-shadow);    
-        }    
-    
-        .header-icons a:hover {    
-            background-color: var(--accent-color);    
-            transform: translateY(-5px);    
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);    
-        }    
-    
-        /* Remove default Font Awesome icon styling */    
-        .header-icons a svg {    
-            width: 20px;    
-            height: 20px;    
-            fill: currentColor;    
-        }    
-    
-        .icon-tooltip {    
-            position: absolute;    
-            bottom: -35px;    
-            left: 50%;    
-            transform: translateX(-50%);    
-            background-color: var(--secondary-color);    
-            color: #fff;    
-            padding: 5px 10px;    
-            border-radius: 4px;    
-            font-size: 0.75em;    
-            white-space: nowrap;    
-            opacity: 0;    
-            pointer-events: none;    
-            transition: opacity var(--transition-speed);    
-            width: max-content;    
-            text-align: center;    
-        }    
-    
-        .header-icons a:hover .icon-tooltip {    
-            opacity: 1;    
-        }    
-    
-        /* Tooltip Arrow */    
-        .icon-tooltip::after {    
-            content: '';    
-            position: absolute;    
-            top: -5px;    
-            left: 50%;    
-            transform: translateX(-50%);    
-            border-width: 5px;    
-            border-style: solid;    
-            border-color: transparent transparent var(--secondary-color) transparent;    
-        }    
-    
-        /* Profile Image */    
-        .profile-image {    
-            width: 250px;    
-            height: 250px;    
-            border-radius: 50%;    
-            object-fit: cover;    
-            border: 5px solid #fff;    
-            animation: fadeInUp 1s ease-out;    
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);    
-            transition: transform var(--transition-speed), box-shadow var(--transition-speed);    
-        }    
-    
-        .profile-image:hover {    
-            transform: scale(1.05);    
-            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.4);    
-        }    
-    
-        /* Section Styles */    
-        section {    
-            padding: var(--section-spacing) 0;    
-            animation: fadeIn 1s ease-out;    
-        }    
-    
-        section:nth-of-type(even) {    
-            background-color: #fff;    
-        }    
-    
-        section:nth-of-type(odd) {    
-            background-color: var(--background-color);    
-        }    
-    
-        h2.section-title {    
-            font-family: var(--heading-font);    
-            color: var(--secondary-color);    
-            border-left: 4px solid var(--accent-color);    
-            padding-left: 10px;    
-            margin-bottom: 30px;    
-            font-size: 2em;    
-            text-transform: uppercase;    
-            position: relative;    
-            display: inline-block;    
-        }    
-    
-        /* Professional Summary */    
-        .profile-summary p {    
-            font-size: 1.1em;    
-            max-width: 800px;    
-            margin: 0 auto;    
-            text-align: center;    
-            line-height: 1.8;    
-            color: #7f8c8d;    
-        }    
-    
-        /* Work Experience */    
-        .work-experience .job {    
-            margin-bottom: 40px;    
-            padding: 20px 25px;    
-            background-color: #f7f7f7;    
-            border-left: 5px solid var(--accent-color);    
-            transition: transform var(--transition-speed), box-shadow var(--transition-speed);    
-            box-shadow: 0 4px 10px var(--card-shadow);    
-            border-radius: 5px;    
-        }    
-    
-        .work-experience .job:hover {    
-            transform: translateY(-5px);    
-            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);    
-        }    
-    
-        .work-experience .job h3 {    
-            font-family: var(--heading-font);    
-            color: var(--secondary-color);    
-            margin-bottom: 8px;    
-            font-size: 1.6em;    
-            display: flex;    
-            align-items: center;    
-            justify-content: space-between;    
-        }    
-    
-        .work-experience .job .job-details {    
-            font-style: italic;    
-            color: #95a5a6;    
-            margin-bottom: 15px;    
-            font-size: 0.95em;    
-            display: flex;    
-            align-items: center;    
-            gap: 5px;    
-        }    
-    
-        .work-experience .job ul {    
-            list-style: disc inside;    
-            color: #7f8c8d;    
-        }    
-    
-        .work-experience .job ul li {    
-            margin-bottom: 10px;    
-            line-height: 1.6;    
-        }    
-    
-        .work-experience .job .tools-tech {    
-            margin-top: 15px;    
-            color: #95a5a6;    
-            font-size: 0.95em;    
-        }    
-    
-        /* Education */    
-        .education .education-item {    
-            margin-bottom: 25px;    
-            padding: 15px 20px;    
-            background-color: #f7f7f7;    
-            border-left: 5px solid var(--accent-color);    
-            border-radius: 5px;    
-            box-shadow: 0 4px 10px var(--card-shadow);    
-            transition: transform var(--transition-speed), box-shadow var(--transition-speed);    
-        }    
-    
-        .education .education-item:hover {    
-            transform: translateY(-5px);    
-            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);    
-        }    
-    
-        .education .education-item h3 {    
-            font-family: var(--heading-font);    
-            color: var(--secondary-color);    
-            margin-bottom: 5px;    
-            font-size: 1.6em;    
-            display: flex;    
-            align-items: center;    
-            justify-content: space-between;    
-        }    
-    
-        .education .education-item .education-details {    
-            font-style: italic;    
-            color: #95a5a6;    
-            font-size: 0.95em;    
-            display: flex;    
-            align-items: center;    
-            gap: 5px;    
-        }    
-    
-        /* Skills */    
-        .skills .skills-grid {    
-            display: grid;    
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));    
-            gap: 20px;    
-        }    
-    
-        .skills .skill-category {    
-            background-color: #fff;    
-            padding: 20px 25px;    
-            border-radius: 5px;    
-            box-shadow: 0 4px 10px var(--card-shadow);    
-            transition: transform var(--transition-speed), box-shadow var(--transition-speed);    
-        }    
-    
-        .skills .skill-category:hover {    
-            transform: translateY(-5px);    
-            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);    
-        }    
-    
-        .skills .skill-category h4 {    
-            color: var(--secondary-color);    
-            margin-bottom: 15px;    
-            font-size: 1.3em;    
-            border-bottom: 2px solid var(--accent-color);    
-            padding-bottom: 5px;    
-            text-transform: uppercase;    
-        }    
-    
-        .skills .skill-category ul {    
-            list-style: none;    
-        }    
-    
-        .skills .skill-category ul li {    
-            margin-bottom: 10px;    
-            position: relative;    
-            padding-left: 20px;    
-            color: #7f8c8d;    
-        }    
-    
-        .skills .skill-category ul li::before {    
-            content: "\2713"; /* Checkmark */    
-            position: absolute;    
-            left: 0;    
-            color: var(--accent-color);    
-            font-weight: bold;    
-        }    
-    
-        /* Projects */    
-        .projects .projects-grid {    
-            display: grid;    
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));    
-            gap: 20px;    
-        }    
-    
-        .projects .project-card {    
-            background-color: var(--card-bg);    
-            border-radius: 8px;    
-            box-shadow: 0 4px 10px var(--card-shadow);    
-            overflow: hidden;    
-            transition: transform var(--transition-speed), box-shadow var(--transition-speed);    
-            display: flex;    
-            flex-direction: column;    
-            height: 100%;    
-        }    
-    
-        .projects .project-card:hover {    
-            transform: translateY(-5px);    
-            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);    
-        }    
-    
-        .projects .project-content {    
-            padding: 15px 20px;    
-            flex: 1;    
-            display: flex;    
-            flex-direction: column;    
-        }    
-    
-        .projects .project-content h3 {    
-            font-family: var(--heading-font);    
-            color: var(--secondary-color);    
-            margin-bottom: 10px;    
-            font-size: 1.4em;    
-        }    
-    
-        .projects .project-content p {    
-            flex: 1;    
-            color: #7f8c8d;    
-            margin-bottom: 10px;    
-            font-size: 0.95em;    
-        }    
-    
-        .projects .project-content .project-tech {    
-            color: #95a5a6;    
-            font-size: 0.9em;    
-        }    
-    
-        /* Certifications */    
-        .certifications .certification {    
-            margin-bottom: 25px;    
-            padding: 15px 20px;    
-            background-color: #f7f7f7;    
-            border-left: 5px solid var(--accent-color);    
-            border-radius: 5px;    
-            transition: transform var(--transition-speed), box-shadow var(--transition-speed);    
-            box-shadow: 0 4px 10px var(--card-shadow);    
-        }    
-    
-        .certifications .certification:hover {    
-            transform: translateY(-5px);    
-            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);    
-        }    
-    
-        .certifications .certification a {    
-            color: var(--secondary-color);    
-            text-decoration: none;    
-            font-weight: 600;    
-            font-size: 1em;    
-            transition: color var(--transition-speed);    
-        }    
-    
-        .certifications .certification a:hover {    
-            color: var(--accent-color);    
-        }    
-    
-        .certifications .certification div {    
-            margin-top: 5px;    
-            color: #95a5a6;    
-            font-size: 0.9em;    
-        }    
-    
-        /* Publications */    
-        .publications .publication {    
-            margin-bottom: 25px;    
-            padding: 15px 20px;    
-            background-color: #f7f7f7;    
-            border-left: 5px solid var(--accent-color);    
-            border-radius: 5px;    
-            transition: transform var(--transition-speed), box-shadow var(--transition-speed);    
-            box-shadow: 0 4px 10px var(--card-shadow);    
-        }    
-    
-        .publications .publication:hover {    
-            transform: translateY(-5px);    
-            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);    
-        }    
-    
-        .publications .publication a {    
-            color: var(--secondary-color);    
-            text-decoration: none;    
-            font-weight: 600;    
-            font-size: 1em;    
-            transition: color var(--transition-speed);    
-        }    
-    
-        .publications .publication a:hover {    
-            color: var(--accent-color);    
-        }    
-    
-        .publications .publication div {    
-            margin-top: 5px;    
-            color: #95a5a6;    
-            font-size: 0.9em;    
-        }    
-    
-        /* Achievements */    
-        .achievements .achievements-list {    
-            list-style: none;    
-            padding: 0;    
-            font-size: 1em;    
-            color: #7f8c8d;    
-        }    
-    
-        .achievements .achievements-list li {    
-            margin-bottom: 10px;    
-            position: relative;    
-            padding-left: 20px;    
-        }    
-    
-        .achievements .achievements-list li::before {    
-            content: "\f005"; /* Font Awesome star */    
-            font-family: "Font Awesome 6 Free";    
-            font-weight: 900;    
-            position: absolute;    
-            left: 0;    
-            color: var(--accent-color);    
-        }    
-    
-        /* Footer */    
-        footer {    
-            text-align: center;    
-            padding: 20px 0;    
-            background-color: var(--primary-color);    
-            color: #fff;    
-        }    
-    
-        footer a {    
-            color: #ecf0f1;    
-            margin: 0 10px;    
-            transition: color var(--transition-speed);    
-            text-decoration: none;    
-            font-weight: 500;    
-        }    
-    
-        footer a:hover {    
-            color: var(--accent-color);    
-        }    
-    
-        footer .footer-links {    
-            margin-top: 10px;    
-        }    
-    
-        /* Back to Top Button */    
-        .back-to-top {    
-            position: fixed;    
-            bottom: 40px;    
-            right: 40px;    
-            background-color: var(--secondary-color);    
-            color: #fff;    
-            padding: 15px;    
-            border-radius: 50%;    
-            font-size: 1.2em;    
-            display: none;    
-            cursor: pointer;    
-            transition: background-color var(--transition-speed), transform var(--transition-speed),    
-                opacity var(--transition-speed);    
-            z-index: 1000;    
-            opacity: 0.8;    
-            align-items: center;    
-            justify-content: center;    
-        }    
-    
-        .back-to-top:hover {    
-            background-color: var(--accent-color);    
-            transform: scale(1.1);    
-            opacity: 1;    
-        }    
-    
-        /* Animations */    
-        @keyframes fadeIn {    
-            from {    
-                opacity: 0;    
-            }    
-    
-            to {    
-                opacity: 1;    
-            }    
-        }    
-    
-        @keyframes fadeInDown {    
-            from {    
-                opacity: 0;    
-                transform: translateY(-20px);    
-            }    
-    
-            to {    
-                opacity: 1;    
-                transform: translateY(0);    
-            }    
-        }    
-    
-        @keyframes fadeInUp {    
-            from {    
-                opacity: 0;    
-                transform: translateY(20px);    
-            }    
-    
-            to {    
-                opacity: 1;    
-                transform: translateY(0);    
-            }    
-        }    
-    
-        /* Responsive */    
-        @media (max-width: 1024px) {    
-            .header-content {    
-                grid-template-columns: 1fr;    
-                text-align: center;    
-            }    
-    
-            .profile-image {    
-                margin: 20px auto 0;    
-                width: 200px;    
-                height: 200px;    
-            }    
-    
-            nav {    
-                position: static;    
-                background: none;    
-                box-shadow: none;    
-                height: auto;    
-                padding: 10px 0;    
-            }    
-    
-            nav ul {    
-                flex-direction: column;    
-                gap: 10px;    
-            }    
-    
-            /* Projects grid adjustment */    
-            .projects .projects-grid {    
-                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));    
-            }    
-        }    
-    
-        @media (max-width: 768px) {    
-            .header-text h1 {    
-                font-size: 2.5em;    
-            }    
-    
-            .header-text h2 {    
-                font-size: 1.2em;    
-            }    
-    
-            .header-icons a {    
-                width: 40px;    
-                height: 40px;    
-                padding: 10px;    
-            }    
-    
-            .icon-tooltip {    
-                bottom: -30px;    
-                font-size: 0.7em;    
-            }    
-    
-            .profile-image {    
-                width: 180px;    
-                height: 180px;    
-            }    
-    
-            .skills .skills-grid {    
-                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));    
-            }    
-    
-            .projects .projects-grid {    
-                grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));    
-            }    
-        }    
-    
-        @media (max-width: 480px) {    
-            .header-text h1 {    
-                font-size: 2em;    
-            }    
-    
-            .header-text h2 {    
-                font-size: 1em;    
-            }    
-    
-            .skills .skills-grid,    
-            .projects .projects-grid {    
-                grid-template-columns: 1fr;    
-            }    
-        }    
-    </style>    
-</head>    
-    
-<body>    
-    
-    <!-- Navigation Bar -->    
-    <nav>    
-        <ul>    
-            <li><a href="#profile">Profile</a></li>    
-            <li><a href="#work-experience">Experience</a></li>    
-            <li><a href="#projects">Projects</a></li>    
-            <li><a href="#education">Education</a></li>    
-            <li><a href="#skills">Skills</a></li>    
-            <li><a href="#publications">Publications</a></li>    
-            <li><a href="#achievements">Achievements</a></li>    
-            <li><a href="#certifications">Certifications</a></li>    
-        </ul>    
-    </nav>    
-    
-    <!-- Header Section -->    
-    <header>    
-        <div class="container">    
-            <div class="header-content">    
-                <!-- Text Content -->    
-                <div class="header-text">    
-                    <h1>Shubham Kumar</h1>    
-                    <h2>Software Engineer at Optum Global Solutions (UHG)</h2>    
-                    <!-- Enhanced Contact Information -->    
-                    <div class="header-icons">      
-                        <!-- Call Icon -->      
-                        <a href="tel:+918002887706" aria-label="Call Phone Number">      
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--!Font Awesome Free 6.7.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M164.9 24.6c-7.7-18.6-28-28.5-47.4-23.2l-88 24C12.1 30.2 0 46 0 64C0 311.4 200.6 512 448 512c18 0 33.8-12.1 38.6-29.5l24-88c5.3-19.4-4.6-39.7-23.2-47.4l-96-40c-16.3-6.8-35.2-2.1-46.3 11.6L304.7 368C234.3 334.7 177.3 277.7 144 207.3L193.3 167c13.7-11.2 18.4-30 11.6-46.3l-40-96z"/></svg>      
-                            <span class="icon-tooltip">Call</span>      
-                        </a>      
-                        <!-- Email Icon -->      
-                        <a href="mailto:mshubham0309@gmail.com" aria-label="Send Email">      
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--!Font Awesome Free 6.7.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M502.3 190.8c3.9-3.1 9.7-.2 9.7 4.7V400c0 26.5-21.5 48-48 48H48c-26.5 0-48-21.5-48-48V195.6c0-5 5.7-7.8 9.7-4.7 22.4 17.4 52.1 39.5 154.1 113.6 21.1 15.4 56.7 47.8 92.2 47.6 35.7 .3 72-32.8 92.3-47.6 102-74.1 131.6-96.3 154-113.7zM256 320c23.2 .4 56.6-29.2 73.4-41.4 132.7-96.3 142.8-104.7 173.4-128.7 5.8-4.5 9.2-11.5 9.2-18.9v-19c0-26.5-21.5-48-48-48H48C21.5 64 0 85.5 0 112v19c0 7.4 3.4 14.3 9.2 18.9 30.6 23.9 40.7 32.4 173.4 128.7 16.8 12.2 50.2 41.8 73.4 41.4z"/></svg>      
-                            <span class="icon-tooltip">Email</span>      
-                        </a>      
-                        <!-- LinkedIn Icon -->      
-                        <a href="https://www.linkedin.com/in/imshubhamkumar/" target="_blank" aria-label="LinkedIn Profile">      
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--!Font Awesome Free 6.7.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"/></svg>     
-                            <span class="icon-tooltip">LinkedIn</span>      
-                        </a>      
-                        <!-- GitHub Icon -->      
-                        <a href="https://github.com/ishubhamkr" target="_blank" aria-label="GitHub Profile">      
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">    
-                                <path    
-                                    d="M12 0C5.37 0 0 5.373 0 12C0 17.303 3.438 21.8 8.205 23.385C8.805 23.495 9.025 23.14 9.025 22.81C9.025 22.5 9.015 21.807 9.01 21.11C5.672 21.823 4.968 19.534 4.968 19.534C4.422 18.18 3.633 17.845 3.633 17.845C2.546 17.135 3.72 17.15 3.72 17.15C4.922 17.235 5.555 18.414 5.555 18.414C6.633 20.29 8.396 19.785 9.081 19.485C9.189 18.7 9.496 18.18 9.83 17.905C7.14 17.625 4.305 16.605 4.305 11.995C4.305 10.694 4.77 9.61 5.572 8.765C5.444 8.477 5.07 7.31 5.68 5.605C5.68 5.605 6.705 5.29 9 6.56C9.957 6.28 11.035 6.14 12.115 6.14C13.195 6.14 14.273 6.28 15.23 6.56C17.523 5.29 18.548 5.605 18.548 5.605C19.16 7.31 18.788 8.477 18.66 8.765C19.462 9.61 19.923 10.694 19.923 11.995C19.923 16.615 17.084 17.62 14.388 17.885C14.82 18.245 15.21 19.02 15.21 20.185C15.21 21.81 15.195 22.88 15.195 22.81C15.195 23.14 15.405 23.495 16.005 23.385C20.77 21.8 24.21 17.303 24.21 12C24.21 5.373 18.627 0 12 0Z" />    
-                            </svg>      
-                            <span class="icon-tooltip">GitHub</span>      
-                        </a>      
-                        <!-- HackerRank Icon -->      
-                        <a href="https://www.hackerrank.com/profile/_mshubham" target="_blank" aria-label="HackerRank Profile">      
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" aria-hidden="true">      
-                                <path d="M477.5 128C463 103.1 285.1 0 256.2 0S49.3 102.8 34.8 128s-14.5 230.8 0 256 192.4 128 221.3 128S463 409.1 477.5 384s14.5-231 0-256zM316.1 414.2c-4 0-40.9-35.8-38-38.7 .9-.9 6.3-1.5 17.6-1.8 0-26.2 .6-68.6 .9-86.3 0-2-.4-3.4-.4-5.9h-79.9c0 7.1-.5 36.2 1.4 72.9 .2 4.5-1.6 6-5.7 5.9-10.1 0-20.3-.1-30.4-.1-4.1 0-5.9-1.5-5.7-6.1 .9-33.4 3-84-.2-212.7v-3.2c-9.7-.4-16.4-1-17.3-1.8-2.9-2.9 34.5-38.7 38.5-38.7s41.2 35.8 38.3 38.7c-.9 .9-7.9 1.5-16.8 1.8v3.2c-2.4 25.8-2 79.6-2.6 105.4h80.3c0-4.6 .4-34.7-1.2-83.6-.1-3.4 1-5.2 4.2-5.2 11.1-.1 22.2-.1 33.2-.1 3.5 0 4.6 1.7 4.5 5.4C333 354.6 336 341.3 336 373.7c8.9 .4 16.8 1 17.7 1.8 2.9 2.9-33.6 38.7-37.6 38.7z"/>      
-                            </svg>      
-                            <span class="icon-tooltip">HackerRank</span>      
-                        </a>      
-                        <!-- Download Resume Icon -->      
-                        <a href="https://raw.githubusercontent.com/ishubhamkr/Resume/main/Shubham_Resume.pdf" target="_blank" aria-label="Download Resume">      
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" aria-hidden="true">      
-                                <path d="M288 32c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 242.7-73.4-73.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l128 128c12.5 12.5 32.8 12.5 45.3 0l128-128c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L288 274.7 288 32zM64 352c-35.3 0-64 28.7-64 64l0 32c0 35.3 28.7 64 64 64l384 0c35.3 0 64-28.7 64-64l0-32c0-35.3-28.7-64-64-64l-101.5 0-45.3 45.3c-25 25-65.5 25-90.5 0L165.5 352 64 352zm368 56a24 24 0 1 1 0 48 24 24 0 1 1 0-48z"/>      
-                            </svg>      
-                            <span class="icon-tooltip">Download Resume</span>      
-                        </a>      
-                    </div>    
-                </div>    
-                <!-- Profile Image -->    
-                <img src="https://avatars.githubusercontent.com/u/34638812?v=4" alt="Shubham Kumar" class="profile-image" loading="lazy">    
-            </div>    
-        </header>    
-    
-        <!-- Professional Summary -->    
-        <section id="profile" class="profile-summary">    
-            <div class="container">    
-                <h2 class="section-title"><i class="fas fa-user"></i> Professional Summary</h2>    
-                <p>    
-                    Highly motivated Software Engineer at Optum Global Solutions (UHG), specializing in API optimization,    
-                    security enhancements, and scalable backend development. Proficient in Java, Spring Boot, ReactJS, Kafka,    
-                    and Kubernetes, with a strong foundation in information security backed by a Master of Technology in    
-                    Information Security. Demonstrated expertise in resolving critical incidents, implementing    
-                    test-driven development, and developing robust digital solutions. Adept at leveraging microservices    
-                    architecture and modern tools to deliver efficient, secure, and high-quality software solutions and    
-                    committed to continuous learning and excellence in software development.    
-                </p>    
-            </div>    
-        </section>    
-    
-        <!-- Work Experience -->    
-        <section id="work-experience" class="work-experience">    
-            <div class="container">    
-                <h2 class="section-title"><i class="fas fa-briefcase"></i> Professional Experience</h2>    
-    
-                <div class="job">    
-                    <h3>Software Engineer <span><i class="fas fa-calendar-alt"></i> July 2022 – Present</span></h3>    
-                    <div class="job-details"><i class="fas fa-map-marker-alt"></i> Optum Global Solutions (UHG) | Noida, Uttar Pradesh, India</div>    
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shubham Kumar | Software Engineer</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome for Section Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        integrity="sha512-pD6XyAohyfjrx9PQsXx1WoN9YbXnVJ/d1SAdckQ4j6a+Qe/rhC4xNsq2p0pJvTok47LX6gNrrB2ElxcSYCb2DQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- CSS Styles -->
+    <style>
+        :root {
+            --primary-color: #253d55;
+            --secondary-color: #062b45;
+            --accent-color: #0fd78b;
+            --background-color: #ecf0f1;
+            --text-color: #000000;
+            --font-family: 'Roboto', sans-serif;
+            --heading-font: 'Poppins', sans-serif;
+            --transition-speed: 0.3s;
+            --section-spacing: 60px;
+            --nav-height: 60px;
+            --card-bg: #ffffff;
+            --card-shadow: rgba(0, 0, 0, 0.1);
+        }
+
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: var(--font-family);
+            color: var(--text-color);
+            background-color: var(--background-color);
+            line-height: 1.6;
+            scroll-behavior: smooth;
+            overflow-x: hidden;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px 0;
+        }
+
+        /* Navigation Bar */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(44, 62, 80, 0.95);
+            z-index: 100;
+            height: var(--nav-height);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+        }
+
+        nav ul li a {
+            color: #ecf0f1;
+            text-decoration: none;
+            font-weight: 600;
+            transition: color var(--transition-speed), border-bottom var(--transition-speed);
+            padding-bottom: 5px;
+            position: relative;
+        }
+
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            background: var(--accent-color);
+            left: 0;
+            bottom: -2px;
+            transition: width var(--transition-speed);
+        }
+
+        nav ul li a:hover,
+        nav ul li a.active {
+            color: var(--accent-color);
+        }
+
+        nav ul li a:hover::after,
+        nav ul li a.active::after {
+            width: 100%;
+        }
+
+        /* Header */
+        header {
+            background-image: url('https://raw.githubusercontent.com/ishubhamkr/Resume/main/sl_031420_28950_10.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            color: #fff;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            padding: 0 20px;
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(44, 62, 80, 0.4);
+            z-index: 0;
+        }
+
+        .header-content {
+            display: grid;
+            grid-template-columns: 1fr 250px;
+            align-items: center;
+            gap: 40px;
+            position: relative;
+            z-index: 1;
+            width: 100%;
+        }
+
+        .header-text {
+            max-width: 600px;
+        }
+
+        .header-text h1 {
+            font-family: var(--heading-font);
+            font-size: 3em;
+            margin-bottom: 10px;
+            letter-spacing: 2px;
+            animation: fadeInDown 1s ease-out;
+        }
+
+        .header-text h2 {
+            font-weight: 400;
+            margin-bottom: 30px;
+            font-size: 1.5em;
+            letter-spacing: 1px;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .header-icons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            animation: fadeIn 1.5s ease-out;
+        }
+
+        .header-icons a {
+            background-color: var(--secondary-color);
+            color: #fff;
+            padding: 15px;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            position: relative;
+            transition: background-color var(--transition-speed), transform var(--transition-speed),
+                box-shadow var(--transition-speed);
+            box-shadow: 0 4px 10px var(--card-shadow);
+        }
+
+        .header-icons a:hover {
+            background-color: var(--accent-color);
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .header-icons a svg {
+            width: 20px;
+            height: 20px;
+            fill: currentColor;
+        }
+
+        .icon-tooltip {
+            position: absolute;
+            bottom: -35px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: var(--secondary-color);
+            color: #fff;
+            padding: 5px 10px;
+            border-radius: 4px;
+            font-size: 0.75em;
+            white-space: nowrap;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity var(--transition-speed);
+            width: max-content;
+            text-align: center;
+        }
+
+        .header-icons a:hover .icon-tooltip {
+            opacity: 1;
+        }
+
+        .icon-tooltip::after {
+            content: '';
+            position: absolute;
+            top: -5px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-width: 5px;
+            border-style: solid;
+            border-color: transparent transparent var(--secondary-color) transparent;
+        }
+
+        .profile-image {
+            width: 250px;
+            height: 250px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid #fff;
+            animation: fadeInUp 1s ease-out;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+            transition: transform var(--transition-speed), box-shadow var(--transition-speed);
+        }
+
+        .profile-image:hover {
+            transform: scale(1.05);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.4);
+        }
+
+        /* Section Styles */
+        section {
+            padding: var(--section-spacing) 0;
+            animation: fadeIn 1s ease-out;
+        }
+
+        section:nth-of-type(even) {
+            background-color: #fff;
+        }
+
+        section:nth-of-type(odd) {
+            background-color: var(--background-color);
+        }
+
+        h2.section-title {
+            font-family: var(--heading-font);
+            color: var(--secondary-color);
+            border-left: 4px solid var(--accent-color);
+            padding-left: 10px;
+            margin-bottom: 30px;
+            font-size: 2em;
+            text-transform: uppercase;
+            position: relative;
+            display: inline-block;
+        }
+
+        /* Professional Summary */
+        .profile-summary p {
+            font-size: 1.1em;
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+            line-height: 1.8;
+            color: #7f8c8d;
+        }
+
+        /* Work Experience */
+        .work-experience .job {
+            margin-bottom: 40px;
+            padding: 20px 25px;
+            background-color: #f7f7f7;
+            border-left: 5px solid var(--accent-color);
+            transition: transform var(--transition-speed), box-shadow var(--transition-speed);
+            box-shadow: 0 4px 10px var(--card-shadow);
+            border-radius: 5px;
+        }
+
+        .work-experience .job:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+        }
+
+        .work-experience .job h3 {
+            font-family: var(--heading-font);
+            color: var(--secondary-color);
+            margin-bottom: 8px;
+            font-size: 1.6em;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .work-experience .job .job-details {
+            font-style: italic;
+            color: #95a5a6;
+            margin-bottom: 15px;
+            font-size: 0.95em;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .work-experience .job ul {
+            list-style: disc inside;
+            color: #7f8c8d;
+        }
+
+        .work-experience .job ul li {
+            margin-bottom: 10px;
+            line-height: 1.6;
+        }
+
+        .work-experience .job .tools-tech {
+            margin-top: 15px;
+            color: #95a5a6;
+            font-size: 0.95em;
+        }
+
+        /* Education */
+        .education .education-item {
+            margin-bottom: 25px;
+            padding: 15px 20px;
+            background-color: #f7f7f7;
+            border-left: 5px solid var(--accent-color);
+            border-radius: 5px;
+            box-shadow: 0 4px 10px var(--card-shadow);
+            transition: transform var(--transition-speed), box-shadow var(--transition-speed);
+        }
+
+        .education .education-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+        }
+
+        .education .education-item h3 {
+            font-family: var(--heading-font);
+            color: var(--secondary-color);
+            margin-bottom: 5px;
+            font-size: 1.6em;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .education .education-item .education-details {
+            font-style: italic;
+            color: #95a5a6;
+            font-size: 0.95em;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        /* Skills */
+        .skills .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+        }
+
+        .skills .skill-category {
+            background-color: #fff;
+            padding: 20px 25px;
+            border-radius: 5px;
+            box-shadow: 0 4px 10px var(--card-shadow);
+            transition: transform var(--transition-speed), box-shadow var(--transition-speed);
+        }
+
+        .skills .skill-category:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+        }
+
+        .skills .skill-category h4 {
+            color: var(--secondary-color);
+            margin-bottom: 15px;
+            font-size: 1.3em;
+            border-bottom: 2px solid var(--accent-color);
+            padding-bottom: 5px;
+            text-transform: uppercase;
+        }
+
+        .skills .skill-category ul {
+            list-style: none;
+        }
+
+        .skills .skill-category ul li {
+            margin-bottom: 10px;
+            position: relative;
+            padding-left: 20px;
+            color: #7f8c8d;
+        }
+
+        .skills .skill-category ul li::before {
+            content: "\2713";
+            position: absolute;
+            left: 0;
+            color: var(--accent-color);
+            font-weight: bold;
+        }
+
+        /* Projects */
+        .projects .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        .projects .project-card {
+            background-color: var(--card-bg);
+            border-radius: 8px;
+            box-shadow: 0 4px 10px var(--card-shadow);
+            overflow: hidden;
+            transition: transform var(--transition-speed), box-shadow var(--transition-speed);
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+
+        .projects .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+        }
+
+        .projects .project-content {
+            padding: 15px 20px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .projects .project-content h3 {
+            font-family: var(--heading-font);
+            color: var(--secondary-color);
+            margin-bottom: 10px;
+            font-size: 1.4em;
+        }
+
+        .projects .project-content p {
+            flex: 1;
+            color: #7f8c8d;
+            margin-bottom: 10px;
+            font-size: 0.95em;
+        }
+
+        .projects .project-content .project-tech {
+            color: #95a5a6;
+            font-size: 0.9em;
+        }
+
+        /* Certifications */
+        .certifications .certification {
+            margin-bottom: 25px;
+            padding: 15px 20px;
+            background-color: #f7f7f7;
+            border-left: 5px solid var(--accent-color);
+            border-radius: 5px;
+            transition: transform var(--transition-speed), box-shadow var(--transition-speed);
+            box-shadow: 0 4px 10px var(--card-shadow);
+        }
+
+        .certifications .certification:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+        }
+
+        .certifications .certification a {
+            color: var(--secondary-color);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1em;
+            transition: color var(--transition-speed);
+        }
+
+        .certifications .certification a:hover {
+            color: var(--accent-color);
+        }
+
+        .certifications .certification div {
+            margin-top: 5px;
+            color: #95a5a6;
+            font-size: 0.9em;
+        }
+
+        /* Publications */
+        .publications .publication {
+            margin-bottom: 25px;
+            padding: 15px 20px;
+            background-color: #f7f7f7;
+            border-left: 5px solid var(--accent-color);
+            border-radius: 5px;
+            transition: transform var(--transition-speed), box-shadow var(--transition-speed);
+            box-shadow: 0 4px 10px var(--card-shadow);
+        }
+
+        .publications .publication:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+        }
+
+        .publications .publication a {
+            color: var(--secondary-color);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1em;
+            transition: color var(--transition-speed);
+        }
+
+        .publications .publication a:hover {
+            color: var(--accent-color);
+        }
+
+        .publications .publication div {
+            margin-top: 5px;
+            color: #95a5a6;
+            font-size: 0.9em;
+        }
+
+        /* Achievements */
+        .achievements .achievements-list {
+            list-style: none;
+            padding: 0;
+            font-size: 1em;
+            color: #7f8c8d;
+        }
+
+        .achievements .achievements-list li {
+            margin-bottom: 10px;
+            position: relative;
+            padding-left: 20px;
+        }
+
+        .achievements .achievements-list li::before {
+            content: "\f005";
+            font-family: "Font Awesome 6 Free";
+            font-weight: 900;
+            position: absolute;
+            left: 0;
+            color: var(--accent-color);
+        }
+
+        /* LinkedIn Posts Section */
+        .linkedin-posts {
+            background-color: #f7f7f7;
+            padding: var(--section-spacing) 0;
+        }
+
+        .skill-icon {
+            width: 20px;
+            height: 20px;
+            vertical-align: middle;
+            margin-right: 8px;
+        }
+
+        .linkedin-posts .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .linkedin-posts iframe {
+            width: 100%;
+            max-width: 800px;
+            height: 500px;
+            border: none;
+            margin: 20px 0;
+            box-shadow: 0 4px 10px var(--card-shadow);
+            border-radius: 8px;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 20px 0;
+            background-color: var(--primary-color);
+            color: #fff;
+        }
+
+        footer a {
+            color: #ecf0f1;
+            margin: 0 10px;
+            transition: color var(--transition-speed);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        footer a:hover {
+            color: var(--accent-color);
+        }
+
+        footer .footer-links {
+            margin-top: 10px;
+        }
+
+        /* Back to Top Button */
+        .back-to-top {
+            position: fixed;
+            bottom: 40px;
+            right: 40px;
+            background-color: var(--secondary-color);
+            color: #fff;
+            padding: 15px;
+            border-radius: 50%;
+            font-size: 1.2em;
+            display: none;
+            cursor: pointer;
+            transition: background-color var(--transition-speed), transform var(--transition-speed),
+                opacity var(--transition-speed);
+            z-index: 1000;
+            opacity: 0.8;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .back-to-top:hover {
+            background-color: var(--accent-color);
+            transform: scale(1.1);
+            opacity: 1;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .header-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .profile-image {
+                margin: 20px auto 0;
+                width: 200px;
+                height: 200px;
+            }
+
+            nav {
+                position: static;
+                background: none;
+                box-shadow: none;
+                height: auto;
+                padding: 10px 0;
+            }
+
+            nav ul {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .projects .projects-grid {
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header-text h1 {
+                font-size: 2.5em;
+            }
+
+            .header-text h2 {
+                font-size: 1.2em;
+            }
+
+            .header-icons a {
+                width: 40px;
+                height: 40px;
+                padding: 10px;
+            }
+
+            .icon-tooltip {
+                bottom: -30px;
+                font-size: 0.7em;
+            }
+
+            .profile-image {
+                width: 180px;
+                height: 180px;
+            }
+
+            .skills .skills-grid {
+                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            }
+
+            .projects .projects-grid {
+                grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            }
+        }
+
+        
+
+        @media (max-width: 480px) {
+            .header-text h1 {
+                font-size: 2em;
+            }
+
+            .header-text h2 {
+                font-size: 1em;
+            }
+
+            .skills .skills-grid,
+            .projects .projects-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+            .instagram {
+            padding: var(--section-spacing) 0;
+            background-color: #fff;
+            }
+
+            .instagram-profile {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+
+            .profile-info {
+                display: flex;
+                align-items: center;
+                margin-bottom: 20px;
+            }
+
+            .profile-pic {
+                width: 150px;
+                height: 150px;
+                border-radius: 50%;
+                margin-right: 20px;
+            }
+
+            .profile-details h3 {
+                font-size: 1.5em;
+                margin-bottom: 10px;
+            }
+
+            .profile-details p {
+                color: #7f8c8d;
+                margin-bottom: 10px;
+            }
+
+            .stats {
+                display: flex;
+                justify-content: space-around;
+                margin-bottom: 20px;
+            }
+
+            .stats span {
+                font-size: 1.1em;
+            }
+
+            .follow-button {
+                background-color: var(--accent-color);
+                color: #fff;
+                padding: 10px 20px;
+                border-radius: 5px;
+                text-decoration: none;
+                font-weight: 600;
+                transition: background-color var(--transition-speed);
+            }
+
+            .follow-button:hover {
+                background-color: var(--secondary-color);
+            }
+
+            .instagram-grid {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+                gap: 20px;
+                width: 100%;
+            }
+
+            .instagram-item {
+                overflow: hidden;
+                border-radius: 8px;
+                box-shadow: 0 4px 10px var(--card-shadow);
+                transition: transform var(--transition-speed), box-shadow var(--transition-speed);
+            }
+
+            .instagram-item img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                transition: transform var(--transition-speed);
+            }
+
+            .instagram-item:hover {
+                transform: translateY(-5px);
+                box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+            }
+
+            .instagram-item:hover img {
+                transform: scale(1.1);
+            }
+    </style>
+</head>
+
+<body>
+    <!-- Navigation Bar -->
+    <nav>
+        <ul>
+            <li><a href="#profile">Profile</a></li>
+            <li><a href="#work-experience">Experience</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#education">Education</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#publications">Publications</a></li>
+            <li><a href="#achievements">Achievements</a></li>
+            <li><a href="#certifications">Certifications</a></li>
+            <li><a href="#linkedin-posts">LinkedIn Posts</a></li>
+            <li><a href="#instagram">Instagram</a></li>
+        </ul>
+    </nav>
+
+    <!-- Header Section -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <!-- Text Content -->
+                <div class="header-text">
+                    <h1>Shubham Kumar</h1>
+                    <h2>Software Engineer at Optum Global Solutions (UHG)</h2>
+                    <!-- Enhanced Contact Information -->
+                    <div class="header-icons">
+                        <!-- Call Icon -->
+                        <a href="tel:+918002887706" aria-label="Call Phone Number">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--!Font Awesome Free 6.7.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M164.9 24.6c-7.7-18.6-28-28.5-47.4-23.2l-88 24C12.1 30.2 0 46 0 64C0 311.4 200.6 512 448 512c18 0 33.8-12.1 38.6-29.5l24-88c5.3-19.4-4.6-39.7-23.2-47.4l-96-40c-16.3-6.8-35.2-2.1-46.3 11.6L304.7 368C234.3 334.7 177.3 277.7 144 207.3L193.3 167c13.7-11.2 18.4-30 11.6-46.3l-40-96z"/></svg>
+                            <span class="icon-tooltip">Call</span>
+                        </a>
+                        <!-- Email Icon -->
+                        <a href="mailto:mshubham0309@gmail.com" aria-label="Send Email">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--!Font Awesome Free 6.7.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M502.3 190.8c3.9-3.1 9.7-.2 9.7 4.7V400c0 26.5-21.5 48-48 48H48c-26.5 0-48-21.5-48-48V195.6c0-5 5.7-7.8 9.7-4.7 22.4 17.4 52.1 39.5 154.1 113.6 21.1 15.4 56.7 47.8 92.2 47.6 35.7 .3 72-32.8 92.3-47.6 102-74.1 131.6-96.3 154-113.7zM256 320c23.2 .4 56.6-29.2 73.4-41.4 132.7-96.3 142.8-104.7 173.4-128.7 5.8-4.5 9.2-11.5 9.2-18.9v-19c0-26.5-21.5-48-48-48H48C21.5 64 0 85.5 0 112v19c0 7.4 3.4 14.3 9.2 18.9 30.6 23.9 40.7 32.4 173.4 128.7 16.8 12.2 50.2 41.8 73.4 41.4z"/></svg>
+                            <span class="icon-tooltip">Email</span>
+                        </a>
+                        <!-- LinkedIn Icon -->
+                        <a href="https://www.linkedin.com/in/imshubhamkumar/" target="_blank" aria-label="LinkedIn Profile">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--!Font Awesome Free 6.7.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"/></svg>
+                            <span class="icon-tooltip">LinkedIn</span>
+                        </a>
+                        <!-- GitHub Icon -->
+                        <a href="https://github.com/ishubhamkr" target="_blank" aria-label="GitHub Profile">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
+                                <path
+                                    d="M12 0C5.37 0 0 5.373 0 12C0 17.303 3.438 21.8 8.205 23.385C8.805 23.495 9.025 23.14 9.025 22.81C9.025 22.5 9.015 21.807 9.01 21.11C5.672 21.823 4.968 19.534 4.968 19.534C4.422 18.18 3.633 17.845 3.633 17.845C2.546 17.135 3.72 17.15 3.72 17.15C4.922 17.235 5.555 18.414 5.555 18.414C6.633 20.29 8.396 19.785 9.081 19.485C9.189 18.7 9.496 18.18 9.83 17.905C7.14 17.625 4.305 16.605 4.305 11.995C4.305 10.694 4.77 9.61 5.572 8.765C5.444 8.477 5.07 7.31 5.68 5.605C5.68 5.605 6.705 5.29 9 6.56C9.957 6.28 11.035 6.14 12.115 6.14C13.195 6.14 14.273 6.28 15.23 6.56C17.523 5.29 18.548 5.605 18.548 5.605C19.16 7.31 18.788 8.477 18.66 8.765C19.462 9.61 19.923 10.694 19.923 11.995C19.923 16.615 17.084 17.62 14.388 17.885C14.82 18.245 15.21 19.02 15.21 20.185C15.21 21.81 15.195 22.88 15.195 22.81C15.195 23.14 15.405 23.495 16.005 23.385C20.77 21.8 24.21 17.303 24.21 12C24.21 5.373 18.627 0 12 0Z" />
+                            </svg>
+                            <span class="icon-tooltip">GitHub</span>
+                        </a>
+                        <!-- HackerRank Icon -->
+                        <a href="https://www.hackerrank.com/profile/_mshubham" target="_blank" aria-label="HackerRank Profile">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" aria-hidden="true">
+                                <path d="M477.5 128C463 103.1 285.1 0 256.2 0S49.3 102.8 34.8 128s-14.5 230.8 0 256 192.4 128 221.3 128S463 409.1 477.5 384s14.5-231 0-256zM316.1 414.2c-4 0-40.9-35.8-38-38.7 .9-.9 6.3-1.5 17.6-1.8 0-26.2 .6-68.6 .9-86.3 0-2-.4-3.4-.4-5.9h-79.9c0 7.1-.5 36.2 1.4 72.9 .2 4.5-1.6 6-5.7 5.9-10.1 0-20.3-.1-30.4-.1-4.1 0-5.9-1.5-5.7-6.1 .9-33.4 3-84-.2-212.7v-3.2c-9.7-.4-16.4-1-17.3-1.8-2.9-2.9 34.5-38.7 38.5-38.7s41.2 35.8 38.3 38.7c-.9 .9-7.9 1.5-16.8 1.8v3.2c-2.4 25.8-2 79.6-2.6 105.4h80.3c0-4.6 .4-34.7-1.2-83.6-.1-3.4 1-5.2 4.2-5.2 11.1-.1 22.2-.1 33.2-.1 3.5 0 4.6 1.7 4.5 5.4C333 354.6 336 341.3 336 373.7c8.9 .4 16.8 1 17.7 1.8 2.9 2.9-33.6 38.7-37.6 38.7z"/>
+                            </svg>
+                            <span class="icon-tooltip">HackerRank</span>
+                        </a>
+                        <!-- Download Resume Icon -->
+                        <a href="https://raw.githubusercontent.com/ishubhamkr/Resume/main/Shubham_Resume.pdf" target="_blank" aria-label="Download Resume">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" aria-hidden="true">
+                                <path d="M288 32c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 242.7-73.4-73.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l128 128c12.5 12.5 32.8 12.5 45.3 0l128-128c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L288 274.7 288 32zM64 352c-35.3 0-64 28.7-64 64l0 32c0 35.3 28.7 64 64 64l384 0c35.3 0 64-28.7 64-64l0-32c0-35.3-28.7-64-64-64l-101.5 0-45.3 45.3c-25 25-65.5 25-90.5 0L165.5 352 64 352zm368 56a24 24 0 1 1 0 48 24 24 0 1 1 0-48z"/>
+                            </svg>
+                            <span class="icon-tooltip">Download Resume</span>
+                        </a>
+                    </div>
+                </div>
+                <!-- Profile Image -->
+                <img src="https://avatars.githubusercontent.com/u/34638812?v=4" alt="Shubham Kumar" class="profile-image" loading="lazy">
+            </div>
+        </div>
+    </header>
+
+    <!-- Professional Summary -->
+    <section id="profile" class="profile-summary">
+        <div class="container">
+            <h2 class="section-title"><i class="fas fa-user"></i> Professional Summary</h2>
+            <p>
+                Highly motivated Software Engineer at Optum Global Solutions (UHG), specializing in API optimization,
+                security enhancements, and scalable backend development. Proficient in Java, Spring Boot, ReactJS, Kafka,
+                and Kubernetes, with a strong foundation in information security backed by a Master of Technology in
+                Information Security. Demonstrated expertise in resolving critical incidents, implementing
+                test-driven development, and developing robust digital solutions. Adept at leveraging microservices
+                architecture and modern tools to deliver efficient, secure, and high-quality software solutions and
+                committed to continuous learning and excellence in software development.
+            </p>
+        </div>
+    </section>
+
+    <!-- Work Experience -->
+    <section id="work-experience" class="work-experience">
+        <div class="container">
+            <h2 class="section-title"><i class="fas fa-briefcase"></i> Professional Experience</h2>
+
+            <div class="job">
+                <h3>Senior Software Engineer <span><i class="fas fa-calendar-alt"></i> March 2025 – Present</span></h3>
+                <div class="job-details"><i class="fas fa-map-marker-alt"></i> Optum Global Solutions (UHG) | Noida, Uttar Pradesh, India</div>
+                <ul>
+                    <li><strong>API Optimization:</strong> Enhanced the Kafka streams and RESTful architecture, leading to a <strong>10% improvement</strong> in API performance times through effective code refactoring.</li>
+                    <li><strong>System Uptime Maintenance:</strong> Resolved critical high-priority ServiceNow incidents, maintaining a <strong>99.95% system uptime</strong> by bolstering security protocols and system stability.</li>
+                    <li><strong>Full-Stack Development Impact:</strong> Spearheaded the refactoring of the Provider Digital Security Application, facilitated the integration of frontend and backend APIs using <strong>React.js</strong>, <strong>Abyss</strong>, and <strong>MongoDB</strong>. Successfully eliminated critical and high vulnerabilities, improved code quality and migrated the code to the latest version of Spring and Java 21, thereby enhancing ticket resolution time by <strong>20%</strong>.</li>
+                    <li><strong>Advanced Monitoring Solutions & Code Review:</strong> Developed new dashboards for <strong>Splunk</strong>, <strong>Kibana</strong>, and <strong>New Relic</strong>. Established war room alerts and pager notifications for quicker issue resolution. Conducted code reviews to ensure the merging of high-quality, secure, and bug-free code.</li>
+                    <li><strong>Leadership & Team Building:</strong> Mentored new graduates and streamlined the onboarding process for new hires, reducing onboarding time by <strong>30%</strong>. Conducted daily scrum meetings to monitor progress and fostered a high-performing, collaborative team environment.</li>
+                </ul>
+                <div class="tools-tech">
+                    <strong>Key Tools & Technologies:</strong> Java, Spring Boot, React.js, Kafka, GraphQL, JUnit, CodeQL, Splunk, Kibana, ServiceNow, MongoDB, Git, Kubernetes, JMeter, OpenLens
+                </div>
+            </div>
+
+            <div class="job">
+                <h3>Software Engineer <span><i class="fas fa-calendar-alt"></i> July 2022 – February 2025</span></h3>
+                <div class="job-details"><i class="fas fa-map-marker-alt"></i> Optum Global Solutions (UHG) | Noida, Uttar Pradesh, India</div>
+                <ul>
+                    <li><strong>Database Performance Enhancement:</strong> Created and ran multiple database migration scripts to update the database, optimizing our <strong>MongoDB</strong> database to accelerate performance.</li>
+                    <li><strong>Incident Resolution:</strong> Successfully resolved over <strong>200 high-priority incidents</strong> on ServiceNow, maintaining a <strong>99.9% system uptime</strong> and bolstering security protocols.</li>
+                    <li><strong>Software Development:</strong> Participated in the design and integration of frontend and backend APIs for the Digital Security Helpdesk Portal. Utilized technologies like <strong>React.js</strong>, <strong>Abyss</strong>, and <strong>MongoDB</strong>, which improved ticket resolution time by <strong>15%</strong>.</li>
+                    <li><strong>Monitoring Solutions:</strong> Assisted in the deployment of production monitoring systems using tools like <strong>Splunk</strong>, <strong>Kibana</strong>, and <strong>New Relic</strong>. Automated database maintenance was achieved through cron jobs, reducing system downtime by <strong>10%</strong>.</li>
+                    <li><strong>Team Collaboration:</strong> Played an instrumental role in the onboarding process of new team members, fostering a collaborative and productive team environment.</li>
+                </ul>
+                <div class="tools-tech">
+                    <strong>Key Tools & Technologies:</strong> Java, Spring Boot, React.js, Kafka, GraphQL, JUnit, CodeQL, Splunk, Kibana, ServiceNow, MongoDB, Git, Kubernetes, JMeter
+                </div>
+            </div>
+
+            <div class="job">
+                <h3>Teaching Assistant <span><i class="fas fa-calendar-alt"></i> January 2022 - May 2022</span></h3>
+                <div class="job-details"><i class="fas fa-map-marker-alt"></i> Indian Institute of Information Technology | Gwalior, Madhya Pradesh, India</div>
+                <ul>
+                    <li>Assisted students in C Programming Lab for 1st-year B.Tech students and AI Lab for 2nd-year B.Tech students, helping with C programming and AI-related coding questions, provided live coding classes, and promptly answered students' queries.</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects -->
+    <section id="projects" class="projects">
+        <div class="container">
+            <h2 class="section-title"><i class="fas fa-project-diagram"></i> Projects</h2>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-content">
+                        <h3>Provider Digital Security</h3>
+                        <p><strong>Description:</strong> Developed and implemented a robust digital security system for the UnitedHealthcare (UHC) Provider Portal, enabling authorization for over 1.4 million users and processing 1.2 billion+ transactions annually. The system protects sensitive data from unauthorized internal and external access while facilitating seamless user and provider interactions.</p>
+                        <div class="project-tech"><strong>Key Technologies:</strong> Java Spring Boot, React.js,
+                            MongoDB, Spring Security, JWT, RESTful APIs, Chart.js</div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-content">
+                        <h3>Enhanced Provider Validation (EPV) Portal</h3>
+                        <p><strong>Description:</strong> Developed the Enhanced Provider Validation (EPV) portal, a web application for Out Of Network (OON) providers to register their Taxpayer Identification Number (TIN) and manage their credentialing information. This portal streamlines the process of validating and maintaining provider data, ensuring compliance and ease of use for healthcare providers.</p>
+                        <div class="project-tech"><strong>Key Technologies:</strong> Java Spring Boot,
+                            MongoDB, Spring Security, JWT, RESTful APIs</div>
+                    </div>
+                </div>
+                <!-- Add more project cards as needed -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Education -->
+    <section id="education" class="education">
+        <div class="container">
+            <h2 class="section-title"><i class="fas fa-graduation-cap"></i> Education</h2>
+
+            <div class="education-item">
+                <h3>Master of Technology (M.Tech) in Information Security <span><i class="fas fa-calendar-alt"></i> July 2020 – June 2022</span></h3>
+                <div class="education-details"><i class="fas fa-university"></i> Indian Institute of Information Technology, Gwalior, Madhya Pradesh, India</div>
+            </div>
+
+            <div class="education-item">
+                <h3>Bachelor of Technology (B.Tech) in Computer Science & Engineering <span><i class="fas fa-calendar-alt"></i> June 2015 – July 2019</span></h3>
+                <div class="education-details"><i class="fas fa-university"></i> West Bengal University of Technology, Kolkata, West Bengal, India</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills -->
+    <section id="skills" class="skills">
+        <div class="container">
+            <h2 class="section-title"><i class="fas fa-cogs"></i> Skills</h2>
+            <div class="skills-grid">
+                <!-- Programming Languages -->
+                <div class="skill-category">
+                    <h4>Programming Languages</h4>
                     <ul>
-                        <li><strong>Boosted API Performance:</strong> Achieved a <strong>15% improvement</strong> in API performance by optimizing Kafka streams and refining RESTful architecture, resulting in reduced latency and enhanced user throughput.</li>
-                        <li><strong>Incident Resolution Excellence:</strong> Resolved <strong>200+ high-priority ServiceNow incidents</strong>, ensuring <strong>99.9% system uptime</strong> while strengthening security protocols for Enhanced Provider Validation (EPV), Digital Security, and Provider Helpdesk Portals.</li>
-                        <li><strong>Full-Stack Development Impact:</strong> Designed and integrated <strong>frontend and backend APIs</strong> for the Digital Security Helpdesk Portal using <strong>React.js</strong>, <strong>Abyss</strong>, and <strong>MongoDB</strong>, cutting ticket resolution time by <strong>25%</strong> and achieving <strong>98% test coverage</strong> with <strong>JUnit</strong>.</li>
-                        <li><strong>Advanced Monitoring Solutions:</strong> Deployed production monitoring systems with <strong>Splunk</strong>, <strong>Kibana</strong>, <strong>New Relic</strong>, and <strong>OpenLens</strong>, alongside automating database maintenance with cron jobs, reducing downtime by <strong>10%</strong> and improving overall system stability.</li>
-                        <li><strong>Leadership & Team Building:</strong> Mentored new graduates and onboarded team members, streamlining the onboarding process and fostering a <strong>high-performing, collaborative team environment</strong>.</li>
+                        <li><img src="https://cdn.jsdelivr.net/npm/simple-icons@v5/icons/cplusplus.svg" alt="C++" class="skill-icon"> C++</li>
+                        <li><img src="https://cdn.jsdelivr.net/npm/simple-icons@v5/icons/python.svg" alt="Python" class="skill-icon"> Python</li>
+                        <li><img src="https://cdn.jsdelivr.net/npm/simple-icons@v5/icons/java.svg" alt="Java" class="skill-icon"> Java</li>
+                        <li><img src="https://cdn.jsdelivr.net/npm/simple-icons@v5/icons/javascript.svg" alt="JavaScript" class="skill-icon"> JavaScript</li>
+                        <li><img src="https://cdn.jsdelivr.net/npm/simple-icons@v5/icons/mysql.svg" alt="SQL" class="skill-icon"> SQL</li>
                     </ul>
-                    <div class="tools-tech">    
-                        <strong>Tools & Technologies:</strong> Java, Spring Boot, ReactJS, Abyss, GraphQL, JUnit, CodeQL, Splunk, Kibana, ServiceNow, MongoDB, Git, Jenkins, Kubernetes, JMeter    
-                    </div>    
-                </div>    
-    
-                <div class="job">    
-                    <h3>Teaching Assistant <span><i class="fas fa-calendar-alt"></i> Jan 2022 - May 2022</span></h3>    
-                    <div class="job-details"><i class="fas fa-map-marker-alt"></i> Indian Institute of Information Technology | Gwalior, Madhya Pradesh, India</div>    
-                    <ul>    
-                        <li>Assisted in C Programming Lab for 1st-year B.Tech students and AI Lab for 2nd-year B.Tech students, helping with C programming and AI-related coding questions.</li>    
-                        <li>Provided live coding classes and promptly answered students' queries.</li>    
-                    </ul>    
-                </div>    
-            </div>    
-        </section>    
-    
-        <!-- Projects -->    
-        <section id="projects" class="projects">    
-            <div class="container">    
-                <h2 class="section-title"><i class="fas fa-project-diagram"></i> Projects</h2>    
-                <div class="projects-grid">    
-                    <div class="project-card">    
-                        <div class="project-content">    
-                            <h3>Provider Digital Security</h3>    
-                            <p><strong>Description:</strong> Developed and implemented a robust digital security system for the UnitedHealthcare (UHC) Provider Portal, enabling authorization for over 1.4 million users and processing 1.2 billion+ transactions annually. The system protects sensitive data from unauthorized internal and external access while facilitating seamless user and provider interactions.</p>    
-                            <div class="project-tech"><strong>Key Technologies:</strong> Java Spring Boot, React.js,    
-                                MongoDB, Spring Security, JWT, RESTful APIs, Chart.js</div>    
-                        </div>    
-                    </div>    
-    
-                    <div class="project-card">    
-                        <div class="project-content">    
-                            <h3>Enhanced Provider Validation (EPV) Portal</h3>    
-                            <p><strong>Description:</strong> Developed the Enhanced Provider Validation (EPV) portal, a web application for Out Of Network (OON) providers to register their Taxpayer Identification Number (TIN) and manage their credentialing information. This portal streamlines the process of validating and maintaining provider data, ensuring compliance and ease of use for healthcare providers.</p>    
-                            <div class="project-tech"><strong>Key Technologies:</strong> Java Spring Boot,    
-                                MongoDB, Spring Security, JWT, RESTful APIs</div>    
-                        </div>    
-                    </div>    
-                    <!-- Add more project cards as needed -->    
-                </div>    
-            </div>    
-        </section>    
-    
-        <!-- Education -->    
-        <section id="education" class="education">    
-            <div class="container">    
-                <h2 class="section-title"><i class="fas fa-graduation-cap"></i> Education</h2>    
-    
-                <div class="education-item">    
-                    <h3>Master of Technology (M.Tech) in Information Security <span><i class="fas fa-calendar-alt"></i> July 2020 – June 2022</span></h3>    
-                    <div class="education-details"><i class="fas fa-university"></i> Indian Institute of Information Technology, Gwalior, Madhya Pradesh, India</div>    
-                </div>    
-    
-                <div class="education-item">    
-                    <h3>Bachelor of Technology (B.Tech) in Computer Science & Engineering <span><i class="fas fa-calendar-alt"></i> June 2015 – July 2019</span></h3>    
-                    <div class="education-details"><i class="fas fa-university"></i> West Bengal University of Technology, Kolkata, West Bengal, India</div>    
-                </div>    
-            </div>    
-        </section>    
-    
-        <!-- Skills -->    
-        <section id="skills" class="skills">    
-            <div class="container">    
-                <h2 class="section-title"><i class="fas fa-cogs"></i> Skills</h2>    
-                <div class="skills-grid">    
-                    <!-- Programming Languages -->    
-                    <div class="skill-category">    
-                        <h4>Programming Languages</h4>    
-                        <ul>    
-                            <li>C++</li>    
-                            <li>Python</li>    
-                            <li>Java</li>    
-                            <li>JavaScript</li>    
-                            <li>SQL</li>    
-                        </ul>    
-                    </div>    
-                    <!-- Front End -->    
-                    <div class="skill-category">    
-                        <h4>Front End</h4>    
-                        <ul>    
-                            <li>HTML</li>    
-                            <li>CSS</li>    
-                            <li>ReactJS</li>    
-                        </ul>    
-                    </div>    
-                    <!-- Back End -->    
-                    <div class="skill-category">    
-                        <h4>Back End</h4>    
-                        <ul>    
-                            <li>Spring Boot</li>    
-                            <li>MySQL</li>    
-                            <li>MongoDB</li>    
-                        </ul>    
-                    </div>    
-                    <!-- Software Development -->    
-                    <div class="skill-category">    
-                        <h4>Software Development</h4>    
-                        <ul>    
-                            <li>Object-Oriented Programming (OOP)</li>    
-                            <li>Microservices</li>    
-                            <li>Software Development Lifecycle</li>    
-                            <li>Test-Driven Development (TDD)</li>    
-                            <li>Microservices Architecture</li>    
-                        </ul>    
-                    </div>    
-                    <!-- Tools & Frameworks -->    
-                    <div class="skill-category">    
-                        <h4>Tools & Frameworks</h4>    
-                        <ul>    
-                            <li>JUnit</li>    
-                            <li>Mockito</li>    
-                            <li>REST API</li>    
-                            <li>Kubernetes</li>    
-                            <li>Kafka</li>    
-                            <li>Git</li>    
-                            <li>Jenkins</li>    
-                            <li>GitHub Actions</li>    
-                            <li>Rally</li>    
-                            <li>Postman</li>    
-                            <li>SonarQube</li>    
-                        </ul>    
-                    </div>    
-                    <!-- IDEs -->    
-                    <div class="skill-category">    
-                        <h4>IDEs</h4>    
-                        <ul>    
-                            <li>Visual Studio</li>    
-                            <li>IntelliJ IDEA</li>    
-                            <li>Eclipse</li>    
-                            <li>Atom</li>    
-                        </ul>    
-                    </div>    
-                    <!-- Monitoring & Logging -->    
-                    <div class="skill-category">    
-                        <h4>Monitoring & Logging</h4>    
-                        <ul>    
-                            <li>Splunk</li>    
-                            <li>Kibana</li>    
-                            <li>New Relic</li>    
-                            <li>Zenmap</li>    
-                            <li>Lens</li>    
-                        </ul>    
-                    </div>    
-                    <!-- Soft Skills -->    
-                    <div class="skill-category">    
-                        <h4>Soft Skills</h4>    
-                        <ul>    
-                            <li>Problem Solving</li>    
-                            <li>Troubleshooting</li>    
-                            <li>Debugging</li>    
-                            <li>Data Structures & Algorithms</li>    
-                            <li>Database Management System</li>    
-                        </ul>    
-                    </div>    
-                </div>    
-            </div>    
-        </section>    
-    
-        <!-- Publications -->    
-        <section id="publications" class="publications">    
-            <div class="container">    
-                <h2 class="section-title"><i class="fas fa-book-open"></i> Publications</h2>    
-                <div class="publication">    
-                    <a href="https://ieeexplore.ieee.org/document/10262746" target="_blank"><strong>Securing IoT with Blockchain: Detecting Malicious Nodes with TLS Certificates</strong></a>    
-                    <div>International Conference on Computer, Electronics & Electrical Engineering & their Applications (IC2E3), June 8, 2023</div>    
-                </div>    
-            </div>    
-        </section>    
-    
-        <!-- Achievements -->    
-        <section id="achievements" class="achievements">    
-            <div class="container">    
-                <h2 class="section-title"><i class="fas fa-trophy"></i> Achievements</h2>    
-                <ul class="achievements-list">    
-                    <li>Qualified GATE-CS in 2020 and 2022.</li>    
-                    <li>Achieved Global Rank: 148 in September Challenge 2021 Division 3 on CodeChef.</li>    
-                    <li>Earned a 5-star rating in C++ Programming on HackerRank.</li>    
-                </ul>    
-            </div>    
-        </section>    
-    
-        <!-- Certifications -->    
-        <section id="certifications" class="certifications">    
-            <div class="container">    
-                <h2 class="section-title"><i class="fas fa-certificate"></i> Certifications</h2>    
-                <div class="certification">    
-                    <a href="https://www.udemy.com/certificate/UC-c1382b60-775e-4ed0-a988-68856bd119f7/" target="_blank"><strong>React - The Complete Guide 2024 (Incl. React Router & Redux)</strong></a>    
-                    <div>Udemy</div>    
-                </div>    
-                <div class="certification">    
-                    <a href="https://www.udemy.com/certificate/UC-7967db37-7322-4c3e-be14-d5b41f7c5c33/" target="_blank"><strong>Core Java - Full Course</strong></a>    
-                    <div>Udemy</div>    
-                </div>    
-                <div class="certification">    
-                    <a href="https://www.linkedin.com/learning/certificates/3ea82b8ea8e97c950d6f44143bbe317f3a1d911a17fdb8dfa6df3bec311c8b1a" target="_blank"><strong>Programming Foundations: Secure Coding</strong></a>    
-                    <div>LinkedIn</div>    
-                </div>    
-                <div class="certification">    
-                    <a href="https://www.coursera.org/verify/NNSN6HC6FJTE" target="_blank"><strong>Blockchain Basics</strong></a>    
-                    <div>University At Buffalo and The State University of New York | Coursera</div>    
-                </div>    
-            </div>    
-        </section>    
-    
-        <!-- Footer -->    
-        <footer>    
-            <div class="container">    
-                &copy; 2024 Shubham Kumar. All rights reserved.    
-                <div class="footer-links">    
-                    <a href="#profile">Profile</a> |    
-                    <a href="#work-experience">Experience</a> |    
-                    <a href="#projects">Projects</a> |    
-                    <a href="#education">Education</a> |    
-                    <a href="#skills">Skills</a> |    
-                    <a href="#publications">Publications</a> |    
-                    <a href="#achievements">Achievements</a> |    
-                    <a href="#certifications">Certifications</a>    
-                </div>    
-            </div>    
-        </footer>    
-    
-        <!-- Back to Top Button -->    
-        <div class="back-to-top" onclick="scrollToTop()" aria-label="Back to Top">    
-            <?xml version="1.0" ?><!DOCTYPE svg  PUBLIC '-//W3C//DTD SVG 1.1//EN'  'http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd'><svg enable-background="new 0 0 32 32" height="32px" id="Layer_1" version="1.1" viewBox="0 0 32 32" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M18.221,7.206l9.585,9.585c0.879,0.879,0.879,2.317,0,3.195l-0.8,0.801c-0.877,0.878-2.316,0.878-3.194,0  l-7.315-7.315l-7.315,7.315c-0.878,0.878-2.317,0.878-3.194,0l-0.8-0.801c-0.879-0.878-0.879-2.316,0-3.195l9.587-9.585  c0.471-0.472,1.103-0.682,1.723-0.647C17.115,6.524,17.748,6.734,18.221,7.206z" fill="#515151"/></svg>     
-        </div>    
-    
-        <!-- JavaScript for Back to Top Button -->    
-        <script>    
-            const backToTopButton = document.querySelector('.back-to-top');    
-    
-            window.addEventListener('scroll', () => {    
-                if (window.scrollY > 300) {    
-                    backToTopButton.style.display = 'flex';    
-                    backToTopButton.style.opacity = '1';    
-                } else {    
-                    backToTopButton.style.display = 'none';    
-                    backToTopButton.style.opacity = '0';    
-                }    
-            });    
-    
-            function scrollToTop() {    
-                window.scrollTo({    
-                    top: 0,    
-                    behavior: 'smooth'    
-                });    
-            }    
-        </script>    
-</body>    
-    
-</html>    
+                </div>
+                <!-- Front End -->
+                <div class="skill-category">
+                    <h4>Front End</h4>
+                    <ul>
+                        <li><img src="https://cdn.jsdelivr.net/npm/simple-icons@v5/icons/html5.svg" alt="HTML" class="skill-icon"> HTML</li>
+                        <li><img src="https://cdn.jsdelivr.net/npm/simple-icons@v5/icons/css3.svg" alt="CSS" class="skill-icon"> CSS</li>
+                        <li><img src="https://cdn.jsdelivr.net/npm/simple-icons@v5/icons/react.svg" alt="ReactJS" class="skill-icon"> ReactJS</li>
+                    </ul>
+                </div>
+                <!-- Back End -->
+                <div class="skill-category">
+                    <h4>Back End</h4>
+                    <ul>
+                        <li><img src="https://cdn.jsdelivr.net/npm/simple-icons@v5/icons/springboot.svg" alt="Spring Boot" class="skill-icon"> Spring Boot</li>
+                        <li><img src="https://cdn.jsdelivr.net/npm/simple-icons@v5/icons/mysql.svg" alt="MySQL" class="skill-icon"> MySQL</li>
+                        <li><img src="https://cdn.jsdelivr.net/npm/simple-icons@v5/icons/mongodb.svg" alt="MongoDB" class="skill-icon"> MongoDB</li>
+                    </ul>
+                </div>
+                <!-- Software Development -->
+                <div class="skill-category">
+                    <h4>Software Development</h4>
+                    <ul>
+                        <li>Object-Oriented Programming (OOP)</li>
+                        <li>Microservices</li>
+                        <li>Software Development Lifecycle</li>
+                        <li>Test-Driven Development (TDD)</li>
+                        <li>Microservices Architecture</li>
+                    </ul>
+                </div>
+                <!-- Tools & Frameworks -->
+                <div class="skill-category">
+                    <h4>Tools & Frameworks</h4>
+                    <ul>
+                        <li><img src="https://cdn.jsdelivr.net/npm/simple-icons@v5/icons/junit5.svg" alt="JUnit" class="skill-icon"> JUnit</li>
+                        <li><img src="https://cdn.jsdelivr.net/npm/simple-icons@v5/icons/kubernetes.svg" alt="Kubernetes" class="skill-icon"> Kubernetes</li>
+                        <li><img src="https://cdn.jsdelivr.net/npm/simple-icons@v5/icons/apachekafka.svg" alt="Kafka" class="skill-icon"> Kafka</li>
+                        <li><img src="https://cdn.jsdelivr.net/npm/simple-icons@v5/icons/git.svg" alt="Git" class="skill-icon"> Git</li>
+                        <li><img src="https://cdn.jsdelivr.net/npm/simple-icons@v5/icons/jenkins.svg" alt="Jenkins" class="skill-icon"> Jenkins</li>
+                        <li><img src="https://cdn.jsdelivr.net/npm/simple-icons@v5/icons/githubactions.svg" alt="GitHub Actions" class="skill-icon"> GitHub Actions</li>
+                        <li><img src="https://cdn.jsdelivr.net/npm/simple-icons@v5/icons/postman.svg" alt="Postman" class="skill-icon"> Postman</li>
+                        <li><img src="https://cdn.jsdelivr.net/npm/simple-icons@v5/icons/sonarqube.svg" alt="SonarQube" class="skill-icon"> SonarQube</li>
+                    </ul>
+                </div>
+                <!-- IDEs -->
+                <div class="skill-category">
+                    <h4>IDEs</h4>
+                    <ul>
+                        <li><img src="https://cdn.jsdelivr.net/npm/simple-icons@v5/icons/visualstudiocode.svg" alt="Visual Studio" class="skill-icon"> Visual Studio</li>
+                        <li><img src="https://cdn.jsdelivr.net/npm/simple-icons@v5/icons/intellijidea.svg" alt="IntelliJ IDEA" class="skill-icon"> IntelliJ IDEA</li>
+                        <li><img src="https://cdn.jsdelivr.net/npm/simple-icons@v5/icons/eclipseide.svg" alt="Eclipse" class="skill-icon"> Eclipse</li>
+                        <li><img src="https://cdn.jsdelivr.net/npm/simple-icons@v5/icons/atom.svg" alt="Atom" class="skill-icon"> Atom</li>
+                    </ul>
+                </div>
+                <!-- Monitoring & Logging -->
+                <div class="skill-category">
+                    <h4>Monitoring & Logging</h4>
+                    <ul>
+                        <li><img src="https://cdn.jsdelivr.net/npm/simple-icons@v5/icons/splunk.svg" alt="Splunk" class="skill-icon"> Splunk</li>
+                        <li><img src="https://cdn.jsdelivr.net/npm/simple-icons@v5/icons/kibana.svg" alt="Kibana" class="skill-icon"> Kibana</li>
+                        <li><img src="https://cdn.jsdelivr.net/npm/simple-icons@v5/icons/newrelic.svg" alt="New Relic" class="skill-icon"> New Relic</li>
+                        <li><img src="https://avatars.githubusercontent.com/u/62133242?s=200&v=4" alt="Lens" class="skill-icon"> Lens</li>
+                    </ul>
+                </div>
+                <!-- Soft Skills -->
+                <div class="skill-category">
+                    <h4>Soft Skills</h4>
+                    <ul>
+                        <li>Problem Solving</li>
+                        <li>Troubleshooting</li>
+                        <li>Debugging</li>
+                        <li>Data Structures & Algorithms</li>
+                        <li>Database Management System</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Publications -->
+    <section id="publications" class="publications">
+        <div class="container">
+            <h2 class="section-title"><i class="fas fa-book-open"></i> Publications</h2>
+            <div class="publication">
+                <a href="https://ieeexplore.ieee.org/document/10262746" target="_blank"><strong>Securing IoT with Blockchain: Detecting Malicious Nodes with TLS Certificates</strong></a>
+                <div>International Conference on Computer, Electronics & Electrical Engineering & their Applications (IC2E3), June 8, 2023</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Achievements -->
+    <section id="achievements" class="achievements">
+        <div class="container">
+            <h2 class="section-title"><i class="fas fa-trophy"></i> Achievements</h2>
+            <ul class="achievements-list">
+                <li>Qualified GATE-CS in 2020 and 2022.</li>
+                <li>Achieved Global Rank: 148 in September Challenge 2021 Division 3 on CodeChef.</li>
+                <li>Earned a 5-star rating in C++ Programming on HackerRank.</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Certifications -->
+    <section id="certifications" class="certifications">
+        <div class="container">
+            <h2 class="section-title"><i class="fas fa-certificate"></i> Certifications</h2>
+            <div class="certification">
+                <a href="https://www.udemy.com/certificate/UC-c1382b60-775e-4ed0-a988-68856bd119f7/" target="_blank"><strong>React - The Complete Guide 2024 (Incl. React Router & Redux)</strong></a>
+                <div>Udemy</div>
+            </div>
+            <div class="certification">
+                <a href="https://www.udemy.com/certificate/UC-7967db37-7322-4c3e-be14-d5b41f7c5c33/" target="_blank"><strong>Core Java - Full Course</strong></a>
+                <div>Udemy</div>
+            </div>
+            <div class="certification">
+                <a href="https://www.linkedin.com/learning/certificates/3ea82b8ea8e97c950d6f44143bbe317f3a1d911a17fdb8dfa6df3bec311c8b1a" target="_blank"><strong>Programming Foundations: Secure Coding</strong></a>
+                <div>LinkedIn</div>
+            </div>
+            <div class="certification">
+                <a href="https://www.coursera.org/verify/NNSN6HC6FJTE" target="_blank"><strong>Blockchain Basics</strong></a>
+                <div>University At Buffalo and The State University of New York | Coursera</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- LinkedIn Posts Section -->
+    <section id="linkedin-posts" class="linkedin-posts">
+        <div class="container">
+            <h2 class="section-title"><i class="fab fa-linkedin"></i> LinkedIn Posts</h2>
+            <!-- Embed LinkedIn Posts -->
+            <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:share:7289242306015064064" height="399" width="504" frameborder="0" allowfullscreen="" title="Embedded post"></iframe>
+            <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:share:7203817732360880129" height="399" width="504" frameborder="0" allowfullscreen="" title="Embedded post"></iframe>
+        </div>
+    </section>
+
+    <!-- Instagram Section -->
+    <section id="instagram" class="instagram">
+        <div class="container">
+            <h2 class="section-title"><i class="fab fa-instagram"></i> Instagram</h2>
+            <div class="instagram-profile">
+                <div class="profile-info">
+                    <img src="https://via.placeholder.com/150" alt="Profile Picture" class="profile-pic">
+                    <div class="profile-details">
+                        <h3>Shubham Kumar</h3>
+                        <p>Indian 🟡 | 🟡 Pisces 🟡 | !!!!Tian 🟡</p>
+                        <p>Anime Lover 🟡 | 9th March</p>
+                        <div class="stats">
+                            <span><strong>43</strong> posts</span>
+                            <span><strong>849</strong> followers</span>
+                            <span><strong>284</strong> following</span>
+                        </div>
+                        <a href="https://www.instagram.com/shubhamkumar___/" target="_blank" class="follow-button">Follow</a>
+                    </div>
+                </div>
+                <div class="instagram-grid">
+                    <a href="https://www.instagram.com/shubhamkumar___/" target="_blank" class="instagram-item">
+                        <img src="https://via.placeholder.com/300" alt="Instagram Image 1">
+                    </a>
+                    <a href="https://www.instagram.com/shubhamkumar___/" target="_blank" class="instagram-item">
+                        <img src="https://via.placeholder.com/300" alt="Instagram Image 2">
+                    </a>
+                    <a href="https://www.instagram.com/shubhamkumar___/" target="_blank" class="instagram-item">
+                        <img src="https://via.placeholder.com/300" alt="Instagram Image 3">
+                    </a>
+                    <a href="https://www.instagram.com/shubhamkumar___/" target="_blank" class="instagram-item">
+                        <img src="https://via.placeholder.com/300" alt="Instagram Image 4">
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            &copy; 2024 Shubham Kumar. All rights reserved.
+            <div class="footer-links">
+                <a href="#profile">Profile</a> |
+                <a href="#work-experience">Experience</a> |
+                <a href="#projects">Projects</a> |
+                <a href="#education">Education</a> |
+                <a href="#skills">Skills</a> |
+                <a href="#publications">Publications</a> |
+                <a href="#achievements">Achievements</a> |
+                <a href="#certifications">Certifications</a> |
+                <a href="#linkedin-posts">LinkedIn Posts</a> |
+                <a href="#instagram">Instagram</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <div class="back-to-top" onclick="scrollToTop()" aria-label="Back to Top">
+        <?xml version="1.0" ?><!DOCTYPE svg  PUBLIC '-//W3C//DTD SVG 1.1//EN'  'http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd'><svg enable-background="new 0 0 32 32" height="32px" id="Layer_1" version="1.1" viewBox="0 0 32 32" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M18.221,7.206l9.585,9.585c0.879,0.879,0.879,2.317,0,3.195l-0.8,0.801c-0.877,0.878-2.316,0.878-3.194,0  l-7.315-7.315l-7.315,7.315c-0.878,0.878-2.317,0.878-3.194,0l-0.8-0.801c-0.879-0.878-0.879-2.316,0-3.195l9.587-9.585  c0.471-0.472,1.103-0.682,1.723-0.647C17.115,6.524,17.748,6.734,18.221,7.206z" fill="#515151"/></svg>
+    </div>
+
+    <!-- JavaScript for Back to Top Button -->
+    <script>
+        const backToTopButton = document.querySelector('.back-to-top');
+
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                backToTopButton.style.display = 'flex';
+                backToTopButton.style.opacity = '1';
+            } else {
+                backToTopButton.style.display = 'none';
+                backToTopButton.style.opacity = '0';
+            }
+        });
+
+        function scrollToTop() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        }
+    </script>
+</body>
+
+</html>
